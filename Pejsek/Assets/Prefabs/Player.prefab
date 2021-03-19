@@ -33,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862128895050090281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.56, y: 1.5, z: 0}
+  m_LocalPosition: {x: -3.56, y: 1.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3862128896624803505}
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 3862128895050090262}
-  playerScale: {fileID: 3862128895050090257}
   playerCollide: {fileID: 3862128895050090256}
   playerPickUpMobile: {fileID: 3862128895050090271}
   taskManager: {fileID: 0}
@@ -188,7 +187,6 @@ MonoBehaviour:
   moveSpeed: 5
   walkArea: {fileID: 0}
   animationIdle: {fileID: 7400000, guid: a5becf613c702504d8c458a96d460cd0, type: 2}
-  animationWalk: {fileID: 7400000, guid: b7f5139ce5beaba4b99eb79e03db2d63, type: 2}
   animationRun: {fileID: 7400000, guid: b4a9e7ee9c34aad429a914ec2b266da4, type: 2}
   target: {fileID: 3862128896410713881}
 --- !u!114 &3862128895050090257
@@ -220,7 +218,6 @@ MonoBehaviour:
   playerController: {fileID: 3862128895050090258}
   mobile: {fileID: 0}
   mobileScreen: {fileID: 0}
-  doggy: {fileID: 0}
 --- !u!114 &3862128895050090256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +233,7 @@ MonoBehaviour:
   playerController: {fileID: 3862128895050090258}
   doorIndicator: {fileID: 0}
   windowIndicator: {fileID: 0}
-  NextWagonScene: TrainWagonDamaged2
+  blackTransition: {fileID: 0}
   animationClipFade: {fileID: 7400000, guid: 926d06e1b676daf4787945a11da76971, type: 2}
 --- !u!1 &3862128896410713881
 GameObject:
@@ -354,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3862128896624803505
 Transform:
   m_ObjectHideFlags: 0
