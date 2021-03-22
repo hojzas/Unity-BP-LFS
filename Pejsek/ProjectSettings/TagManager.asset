@@ -60,6 +60,12 @@ TagManager:
   - name: Player
     uniqueID: 1091006659
     locked: 0
+  - name: Train
+    uniqueID: 3155001005
+    locked: 0
   - name: InteractiveObjects
     uniqueID: 1039242297
+    locked: 0
+  - name: Foreground
+    uniqueID: 1121560641
     locked: 0
