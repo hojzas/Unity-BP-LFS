@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VideoManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class VideoManager : MonoBehaviour
     // Load next introduction scene
     void NextScene() {
         soundManager.StopAudio();
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 

@@ -13,6 +13,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip trainDepart = default;
     [SerializeField] AudioClip trainDoorOpening = default;
     [SerializeField] AudioClip trainPassingBy = default;
+    [SerializeField] AudioClip landslide = default;
+    [SerializeField] AudioClip digging = default;
+    [SerializeField] AudioClip trainCrash = default;
+    [SerializeField] AudioClip trainPreCrash = default;
 
 
     internal void PlayAudio(string audioClip) {
@@ -31,6 +35,22 @@ public class SoundManager : MonoBehaviour
 
             case "trainPassingBy":
                 audioSrc.PlayOneShot(trainPassingBy);
+                break;
+
+            case "landslide":
+                audioSrc.PlayOneShot(landslide);
+                break;
+
+            case "digging":
+                audioSrc.PlayOneShot(digging);
+                break;
+
+            case "trainCrash":
+                audioSrc.PlayOneShot(trainCrash);
+                break;
+
+            case "trainPreCrash":
+                audioSrc.PlayOneShot(trainPreCrash);
                 break;
         }
     }
