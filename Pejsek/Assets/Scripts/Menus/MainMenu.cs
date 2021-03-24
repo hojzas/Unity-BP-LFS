@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Animator blackTransition = default;
     [SerializeField] Animator aboutPanelAnimator = default;
     [SerializeField] Animator aboutButtonAnimator = default;
+    [SerializeField] Animator quitButtonAnimator = default;
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -35,6 +36,9 @@ public class MainMenu : MonoBehaviour
 
         aboutButtonAnimator.SetTrigger(closeTrigger);
         aboutButtonAnimator.ResetTrigger(openTrigger);
+
+        quitButtonAnimator.SetTrigger(closeTrigger);
+        quitButtonAnimator.ResetTrigger(openTrigger);
     }
 
     public void CloseAboutGame() {
@@ -43,5 +47,12 @@ public class MainMenu : MonoBehaviour
 
         aboutButtonAnimator.SetTrigger(openTrigger);
         aboutButtonAnimator.ResetTrigger(closeTrigger);
+
+        quitButtonAnimator.SetTrigger(openTrigger);
+        quitButtonAnimator.ResetTrigger(closeTrigger);
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }

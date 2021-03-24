@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VideoManager : MonoBehaviour
+public class VideoManager1 : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
 
@@ -11,12 +11,14 @@ public class VideoManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        StartCoroutine(soundManager.VolumeUp(0.01f, 1));
+        
         soundManager.PlayAudio("trainDepart");
+        soundManager.stationNoise.Play();
     }
 
     // Load next introduction scene
     void NextScene() {
-        soundManager.StopAudio();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -32,6 +34,14 @@ public class VideoManager : MonoBehaviour
 
     void LatecomerStartRun() {
         latecomerAnimator.SetTrigger("Start");
+    }
+
+    void VolumeDown() {
+        StartCoroutine(soundManager.VolumeDown(0.0018f));
+    }
+
+    void StationNoiseStop() {
+        soundManager.stationNoise.Stop();
     }
 
 

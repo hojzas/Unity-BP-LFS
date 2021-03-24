@@ -32,7 +32,7 @@ public class Task6TrainSearch : MonoBehaviour
     [TextArea]
     [SerializeField] string question = "Kolik je ve vlaku zraněných?";
     [TextArea]
-    [SerializeField] string finalSpeech = "Výborně, pomoc by měla dorazit za minutu, za chvíli uvidíš přistávat vrtulník, udělal jsi dobrou práci, děkujeme!";
+    [SerializeField] string finalSpeech = "Výborně, pomoc by měla dorazit za minutu, za chvíli uvidíš přistávat vrtulník, odvedl jsi dobrou práci, děkujeme!";
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -122,10 +122,7 @@ public class Task6TrainSearch : MonoBehaviour
     // Passenger counter
     internal void PassengerTap() {
         
-        // First passenger found
-        if (totalPassengerFound == 0) {
-            tapHint.SetActive(false);
-        }
+        tapHint.SetActive(false);
 
         // Incrementation
         totalPassengerFound++;

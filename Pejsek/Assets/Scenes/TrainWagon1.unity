@@ -5790,7 +5790,7 @@ MonoBehaviour:
   introducePart2: ", jak v\xE1m mohu pomoci?"
   introduce155: "z\xE1chrann\xE1 slu\u017Eba"
   introduce112: "t\xEDs\u0148ov\xE1 linka"
-  afterCorrectAnswer: "Super, neboj, spole\u010Dn\u011B v\u0161em zran\u011Bn\xFDm
+  afterCorrectAnswer: "Dob\u0159e, neboj, spole\u010Dn\u011B v\u0161em zran\u011Bn\xFDm
     pasa\u017E\xE9r\u016Fm pom\u016F\u017Eeme."
   openTrigger: Open
   closeTrigger: Close
@@ -5924,8 +5924,7 @@ MonoBehaviour:
   isLastWagonScene: 0
   question: "Kolik je ve vlaku zran\u011Bn\xFDch?"
   finalSpeech: "V\xFDborn\u011B, pomoc by m\u011Bla dorazit za minutu, za chv\xEDli
-    uvid\xED\u0161 p\u0159ist\xE1vat vrtuln\xEDk, ud\u011Blal jsi dobrou pr\xE1ci,
-    d\u011Bkujeme!"
+    uvid\xED\u0161 p\u0159ist\xE1vat vrtuln\xEDk, odvedl jsi dobrou pr\xE1ci, d\u011Bkujeme!"
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &504436020 stripped
@@ -31084,6 +31083,7 @@ MonoBehaviour:
   pauseButton: {fileID: 879060192}
   aboutPanel: {fileID: 110884802}
   pauseMenuAnimator: {fileID: 200733132}
+  skipButtonAnimator: {fileID: 0}
   blackTransition: {fileID: 833306721}
   openTrigger: Open
   closeTrigger: Close
@@ -39237,12 +39237,12 @@ PrefabInstance:
     - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 1774
       objectReference: {fileID: 0}
     - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 140
+      value: 1854
       objectReference: {fileID: 0}
     - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
         type: 3}
@@ -39273,6 +39273,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007320467361437419, guid: c504175fe82672f4d8918d62b43d74d3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c504175fe82672f4d8918d62b43d74d3, type: 3}

@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("AudioSource")]
     [SerializeField] AudioSource audioSrc = default;
+    [SerializeField] internal AudioSource stationNoise = default;
     
     [Header("Sounds")]
     [SerializeField] AudioClip trainBraking = default;
@@ -14,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip trainDoorOpening = default;
     [SerializeField] AudioClip trainPassingBy = default;
     [SerializeField] AudioClip landslide = default;
+    [SerializeField] AudioClip cliff = default;
     [SerializeField] AudioClip digging = default;
     [SerializeField] AudioClip trainCrash = default;
     [SerializeField] AudioClip trainPreCrash = default;
@@ -45,6 +47,10 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(digging);
                 break;
 
+            case "cliff":
+                audioSrc.PlayOneShot(cliff);
+                break;
+
             case "trainCrash":
                 audioSrc.PlayOneShot(trainCrash);
                 break;
@@ -56,6 +62,30 @@ public class SoundManager : MonoBehaviour
     }
 
     internal void StopAudio() {
+        audioSrc.Stop();
+    }
+
+    internal void SetVolumeValue(float value) {
+        audioSrc.volume = value;
+    }
+
+    internal IEnumerator VolumeUp(float increment, float maximum) {
+        audioSrc.volume = 0;
+
+        while (audioSrc.volume < maximum) {
+            audioSrc.volume += increment;
+            yield return null;
+        }
+
+    }
+
+    internal IEnumerator VolumeDown(float decrement) {
+
+        while (audioSrc.volume > 0) {
+            audioSrc.volume -= decrement;
+            yield return null;
+        }
+
         audioSrc.Stop();
     }
 }

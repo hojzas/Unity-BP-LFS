@@ -143,15 +143,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 35.666668
         value: {x: -105.2, y: 1.839, z: 170.1553}
-        inSlope: {x: -19.286745, y: 0, z: 0}
-        outSlope: {x: -19.286745, y: 0, z: 0}
+        inSlope: {x: -22.106022, y: 0, z: 0}
+        outSlope: {x: -22.106022, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 43.016666
-        value: {x: -241, y: 1.839, z: 170.1553}
+        value: {x: -280, y: 1.839, z: 170.1553}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -167,7 +167,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -38.8, y: 21.87, z: 41.15527}
+        value: {x: -29.1, y: 21.87, z: 41.15527}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -175,7 +175,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 3.6666667
+        time: 4.9333334
         value: {x: 18.73, y: 21.87, z: 41.15527}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -350,7 +350,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.7166667
+        time: 4.983333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -795,15 +795,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 35.666668
         value: -105.2
-        inSlope: -19.286745
-        outSlope: -19.286745
+        inSlope: -22.106022
+        outSlope: -22.106022
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 43.016666
-        value: -241
+        value: -280
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1079,7 +1079,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -38.8
+        value: -29.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1087,7 +1087,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3.6666667
+        time: 4.9333334
         value: 18.73
         inSlope: 0
         outSlope: 0
@@ -1115,7 +1115,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3.6666667
+        time: 4.9333334
         value: 21.87
         inSlope: 0
         outSlope: 0
@@ -1143,7 +1143,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3.6666667
+        time: 4.9333334
         value: 41.15527
         inSlope: 0
         outSlope: 0
@@ -1171,7 +1171,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.7166667
+        time: 4.983333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -1206,6 +1206,20 @@ AnimationClip:
     messageOptions: 0
   - time: 18.583334
     functionName: OpenDoor
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 27.366667
+    functionName: StationNoiseStop
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 36.166668
+    functionName: VolumeDown
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

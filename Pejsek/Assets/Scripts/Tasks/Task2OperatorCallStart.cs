@@ -17,7 +17,7 @@ public class Task2OperatorCallStart : MonoBehaviour
     [SerializeField] string introduce155 = "záchranná služba";
     [SerializeField] string introduce112 = "tísňová linka";
     [TextArea]
-    [SerializeField] string afterCorrectAnswer = "Super, neboj, společně všem zraněným pasažérům pomůžeme.";
+    [SerializeField] string afterCorrectAnswer = "Dobře, neboj, společně všem zraněným pasažérům pomůžeme.";
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";

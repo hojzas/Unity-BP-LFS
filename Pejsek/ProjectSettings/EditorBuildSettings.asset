@@ -13,6 +13,9 @@ EditorBuildSettings:
     guid: 87163fc90f87ead499b67165a48e27f5
   - enabled: 1
     path: Assets/Scenes/Introduction2.unity
+    guid: f2c31a98a51103b4a912e25a3252183d
+  - enabled: 1
+    path: Assets/Scenes/Introduction3.unity
     guid: c1294a921283c844ea1a5c810402e72f
   - enabled: 1
     path: Assets/Scenes/TrainWagon1.unity

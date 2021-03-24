@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] Button pauseButton = default;
     [SerializeField] GameObject aboutPanel = default;
     [SerializeField] Animator pauseMenuAnimator = default;
+    [SerializeField] Animator skipButtonAnimator = default;
 
     [SerializeField] Animator blackTransition = default;
 
@@ -24,6 +25,8 @@ public class PauseMenu : MonoBehaviour
     private AudioSource[] audioSources;
     internal bool paused = false;
 
+    bool menuDisabled = false;
+
     void Start()
     {
         pauseButton.GetComponent<Button>().onClick.AddListener(PauseGame);
@@ -33,6 +36,8 @@ public class PauseMenu : MonoBehaviour
 
     // Pause
     void PauseGame() {
+        menuDisabled = false;
+
         Time.timeScale = 0f;
 
         PauseAudio(true);
@@ -44,19 +49,33 @@ public class PauseMenu : MonoBehaviour
         // Close pause button
         pauseButtonAnimator.SetTrigger(closeTrigger);
         pauseButtonAnimator.ResetTrigger(openTrigger);
+
+        if (skipButtonAnimator != null) {
+            skipButtonAnimator.SetTrigger(closeTrigger);
+            skipButtonAnimator.ResetTrigger(openTrigger);
+        }
     }
 
     // Resume
     public void ResumeGame() {
-        Time.timeScale = 1f;
 
-        PauseAudio(false);
+        if (!menuDisabled) {
 
-        pauseMenuAnimator.SetTrigger(closeTrigger);
-        pauseMenuAnimator.ResetTrigger(openTrigger);
-        StartCoroutine(WaitForAnimation());
-        pauseButtonAnimator.SetTrigger(openTrigger);
-        pauseButtonAnimator.ResetTrigger(closeTrigger);
+            menuDisabled = true;
+
+            Time.timeScale = 1f;
+
+            PauseAudio(false);
+
+            pauseMenuAnimator.SetTrigger(closeTrigger);
+            pauseMenuAnimator.ResetTrigger(openTrigger);
+            StartCoroutine(WaitForAnimation());
+
+            if (skipButtonAnimator == null) {
+                pauseButtonAnimator.SetTrigger(openTrigger);
+                pauseButtonAnimator.ResetTrigger(closeTrigger);
+            }
+        }
     }
 
     // Unpaused after animation finished
@@ -80,10 +99,16 @@ public class PauseMenu : MonoBehaviour
 
     // Main menu
     public void GoToMainMenu() {
-        Time.timeScale = 1f;
-        paused = false;
 
-        StartCoroutine(MainMenuTransition());
+        if (!menuDisabled) {
+
+            menuDisabled = true;
+
+            Time.timeScale = 1f;
+            paused = false;
+
+            StartCoroutine(MainMenuTransition());
+        }
     }
 
     // Transition
@@ -96,11 +121,17 @@ public class PauseMenu : MonoBehaviour
 
     // About game
     public void AboutGame() {
-        aboutPanel.GetComponent<Animator>().SetTrigger(openTrigger);
-        aboutPanel.GetComponent<Animator>().ResetTrigger(closeTrigger);
+        
+        if (!menuDisabled) {
+
+            menuDisabled = true;
+            aboutPanel.GetComponent<Animator>().SetTrigger(openTrigger);
+            aboutPanel.GetComponent<Animator>().ResetTrigger(closeTrigger);
+        }
     }
 
     public void CloseAboutGame() {
+        menuDisabled = false;
         aboutPanel.GetComponent<Animator>().SetTrigger(closeTrigger);
         aboutPanel.GetComponent<Animator>().ResetTrigger(openTrigger);
     }
