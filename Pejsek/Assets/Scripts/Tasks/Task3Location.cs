@@ -20,7 +20,7 @@ public class Task3Location : MonoBehaviour
     [TextArea]
     [SerializeField] string question = "Kde se to stalo?";
     [TextArea]
-    [SerializeField] string wrongAnswer = "To nestačí, na jaké trase se to stalo";
+    string wrongAnswer = "To nestačí, na jaké trase se to stalo?" + System.Environment.NewLine + "Kde jste nastupovali a kam jste jeli?";
 
 
     internal void StartTask3Location() {

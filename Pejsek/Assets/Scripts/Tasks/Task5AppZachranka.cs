@@ -23,9 +23,9 @@ public class Task5AppZachranka : MonoBehaviour
 
     [Header("Operator's speech")]
     [TextArea]
-    [SerializeField] string question = "Ale aby jsme si byli jisti, zkus zavolat z aplikace Záchranka.";
+    [SerializeField] string question = "Ale abychom si byli jistí, zkus zavolat z aplikace Záchranka.";
     [TextArea]
-    [SerializeField] string feedback = "Super, přesná lokace z aplikace nám došla.";
+    [SerializeField] string feedback = "Tak a teď už vidím, kde přesně k nehodě došlo.";
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -141,6 +141,7 @@ public class Task5AppZachranka : MonoBehaviour
     // Call button up
     public void CallButtonUp() {
         holdingCallButton = false;
+        holdHint.SetActive(true);
         loading = 0f;
         loadingCircle.fillAmount = loading;
     }

@@ -20,14 +20,17 @@ public class VideoManager3 : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        StartCoroutine(soundManager.VolumeUp(0.01f, 0.6f));
-
-        soundManager.PlayAudio("landslide");
-        soundManager.PlayAudio("digging");
         StartCoroutine(StartStoneFalling());
     }
 
     IEnumerator StartStoneFalling() {
+
+        yield return new WaitForSeconds(1);
+
+        StartCoroutine(soundManager.VolumeUp(0.01f, 0.6f));
+
+        soundManager.PlayAudio("landslide");
+        soundManager.PlayAudio("digging");
 
         for (int i = 0; i < stones.transform.childCount; i++) {
             SetStoneActive(i);
@@ -72,7 +75,7 @@ public class VideoManager3 : MonoBehaviour
 
         StartCoroutine(soundManager.VolumeDown(0.0025f));
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         NextScene();
     }

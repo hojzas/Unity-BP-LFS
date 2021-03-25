@@ -13,6 +13,9 @@ public class MoveLandscape : MonoBehaviour
     [SerializeField] GameObject swipeHint = default;
     [SerializeField] GameObject tapHint = default;
 
+    [SerializeField] GameObject arrowRight = default;
+    [SerializeField] GameObject arrowLeft = default;
+
     Vector2 swipeStart, swipeEnd;
     Vector3 landscapePositionStart, landscapePositionEnd;
 
@@ -20,12 +23,13 @@ public class MoveLandscape : MonoBehaviour
     internal int currentPosition = 0;
     internal bool towerClicked = false;
     bool moving = false;
+    bool swipeLock = false;
 
     // Update is called once per frame
     void FixedUpdate() {
 
         // Recognize swipe
-        if (Input.touchCount > 0 && !moving) {
+        if (Input.touchCount > 0 && !moving && !swipeLock) {
 
             if (Input.GetTouch(0).phase == TouchPhase.Began) {  
                 swipeStart = Input.GetTouch(0).position;
@@ -58,6 +62,8 @@ public class MoveLandscape : MonoBehaviour
 
         tapHint.SetActive(false);
         swipeHint.SetActive(false);
+        arrowRight.SetActive(false);
+        arrowLeft.SetActive(false);
 
         // Get direction
         if (moveLeft) {
@@ -88,6 +94,7 @@ public class MoveLandscape : MonoBehaviour
     }
 
     IEnumerator ShowTapHint() {
+        swipeLock = true;
         yield return new WaitForSeconds(3);
 
         // Show only when view is static and tower is visible (pos -2)

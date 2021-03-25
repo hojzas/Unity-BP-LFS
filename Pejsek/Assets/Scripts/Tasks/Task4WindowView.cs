@@ -19,13 +19,12 @@ public class Task4WindowView : MonoBehaviour
     [SerializeField] GameObject windowView = default;
     [SerializeField] GameObject swipeHint = default;
     [SerializeField] GameObject tapHint = default;
-    [SerializeField] Button tower = default;
+    [SerializeField] Button towerButton = default;
 
     [Header("Operator's speech")]
+    string question = "Výborně, ale musíme to vědět přesně," + System.Environment.NewLine + "je vidět nějaký výrazný bod?";
     [TextArea]
-    [SerializeField] string question = "Super, ale musíme to vědět přesně, je vidět nějaký výrazný bod?";
-    [TextArea]
-    [SerializeField] string correct = "Výborně, už asi vím, kde jsi.";
+    [SerializeField] string correct = "Ano, už asi vím, kde jsi. Pomoc je už na cestě.";
 
     TextMeshProUGUI speechBubble;
 
@@ -74,7 +73,7 @@ public class Task4WindowView : MonoBehaviour
 
             moveLandscape.towerClicked = true;
             tapHint.SetActive(false);
-            tower.enabled = false;
+            towerButton.enabled = false;
             StartCoroutine(taskManager.WriteText(speechBubble, correct));
             StartCoroutine(HideWindow());
 
