@@ -58,11 +58,9 @@ public class MobileButtonsControl : MonoBehaviour
                 audioCall.Play();
 
                 // Doggy feedback
-                /*
                 doggyAnimator.ResetTrigger("Wrong");
                 doggyAnimator.ResetTrigger("Normal");
                 doggyAnimator.SetTrigger("Correct");
-                */
 
                 StartCoroutine(HideMobile());
 
@@ -84,10 +82,8 @@ public class MobileButtonsControl : MonoBehaviour
                 StartCoroutine(WrongNumber());
 
                 // Play wrong answer animation
-                /*
                 doggyAnimator.ResetTrigger("Normal");
                 doggyAnimator.SetTrigger("Wrong");
-                */
             }
         }
     }

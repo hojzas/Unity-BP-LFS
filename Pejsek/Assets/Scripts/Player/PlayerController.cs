@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal PlayerCollide playerCollide = default;
     [SerializeField] internal PlayerPickUpMobile playerPickUpMobile = default;
     [SerializeField] internal TaskManager taskManager = default;
+    [SerializeField] internal GameObject player = default;
 
 
     internal bool goToNextWagon = false;

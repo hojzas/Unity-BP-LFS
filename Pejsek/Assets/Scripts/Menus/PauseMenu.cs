@@ -140,4 +140,8 @@ public class PauseMenu : MonoBehaviour
 
     // Mute sounds
 
+    public void SkipToDelete() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

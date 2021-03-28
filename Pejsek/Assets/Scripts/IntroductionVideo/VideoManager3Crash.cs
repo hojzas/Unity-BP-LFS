@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VideoManager3 : MonoBehaviour
+public class VideoManager3Crash : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
     

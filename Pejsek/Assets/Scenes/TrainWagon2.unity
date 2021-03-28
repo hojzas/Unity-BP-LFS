@@ -245,6 +245,7 @@ MonoBehaviour:
   pauseButton: {fileID: 1073814850}
   aboutPanel: {fileID: 1377193387}
   pauseMenuAnimator: {fileID: 1322604143}
+  skipButtonAnimator: {fileID: 0}
   blackTransition: {fileID: 222753164}
   openTrigger: Open
   closeTrigger: Close
@@ -523,6 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskManager: {fileID: 296233572}
   playerController: {fileID: 531520310}
+  blackTransition: {fileID: 222753164}
   speakingIcon: {fileID: 1419741303}
   speechBubbleSmall: {fileID: 1702101833}
   speechBubbleBig: {fileID: 1099851165}
@@ -533,9 +535,8 @@ MonoBehaviour:
   isFirstWagonScene: 0
   isLastWagonScene: 1
   question: "Kolik je ve vlaku zran\u011Bn\xFDch?"
-  finalSpeech: "V\xFDborn\u011B, pomoc by m\u011Bla dorazit za minutu, za chv\xEDli
-    uvid\xED\u0161 p\u0159ist\xE1vat vrtuln\xEDk, ud\u011Blal jsi dobrou pr\xE1ci,
-    d\u011Bkujeme!"
+  finalSpeech: "V\xFDborn\u011B, pomoc by m\u011Bla dorazit za p\xE1r minut, za chv\xEDli
+    uvid\xED\u0161 p\u0159ist\xE1vat vrtuln\xEDk, odvedl jsi dobrou pr\xE1ci, d\u011Bkujeme!"
   openTrigger: Open
   closeTrigger: Close
 --- !u!224 &296233574

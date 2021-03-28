@@ -57,7 +57,7 @@ public class Task3Location : MonoBehaviour
         // Feedback
         StartCoroutine(taskManager.WriteText(speechBubbleText, wrongAnswer));
         enableButtons(false);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5f);
         enableButtons(true);
     }
 

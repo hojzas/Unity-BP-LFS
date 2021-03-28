@@ -18,6 +18,7 @@ public class Task5AppZachranka : MonoBehaviour
     [SerializeField] GameObject mobileApp = default;
     [SerializeField] GameObject mobileAppCalling = default;
     [SerializeField] GameObject holdHint = default;
+    [SerializeField] AudioSource appAudio = default;
     [SerializeField] Image loadingCircle = default;
     [SerializeField] float callDuration = 3f;
 
@@ -115,7 +116,7 @@ public class Task5AppZachranka : MonoBehaviour
         mobileAppCalling.GetComponent<Animator>().Play("MobileScreenAppZoomOut");
 
         // Close speech bubble
-        taskManager.ResetBubbleText(speechBubbleText);
+        //taskManager.ResetBubbleText(speechBubbleText);
         speechBubbleAnimator.SetTrigger(closeTrigger);
         yield return new WaitForSeconds(1);
 
@@ -136,11 +137,13 @@ public class Task5AppZachranka : MonoBehaviour
     // Call button pressed and hold
     public void CallButtonDown() {
         holdingCallButton = true;
+        appAudio.Play();
     }
 
     // Call button up
     public void CallButtonUp() {
         holdingCallButton = false;
+        appAudio.Stop();
         holdHint.SetActive(true);
         loading = 0f;
         loadingCircle.fillAmount = loading;

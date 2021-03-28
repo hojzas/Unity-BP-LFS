@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VideoManager2 : MonoBehaviour
+public class VideoManager2TrainPassingBy : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
     [SerializeField] Animator blackTransitionAnimator = default;
@@ -11,13 +11,13 @@ public class VideoManager2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundManager.VolumeUp(0.01f, 0.8f);
+        StartCoroutine(soundManager.VolumeUp(0.01f, 0.8f));
         soundManager.PlayAudio("trainPassingBy");
     }
 
     // Load next introduction scene
     void VolumeDown() {
-        soundManager.VolumeDown(0.005f);
+        StartCoroutine(soundManager.VolumeDown(0.005f));
         StartCoroutine(NextScene());
     }
 

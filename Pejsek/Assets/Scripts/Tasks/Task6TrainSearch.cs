@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -9,6 +10,7 @@ public class Task6TrainSearch : MonoBehaviour
 {
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] PlayerController playerController = default;
+    [SerializeField] Animator blackTransition = default;
 
     [Header("Speech bubble")]
     [SerializeField] GameObject speakingIcon = default;
@@ -148,6 +150,11 @@ public class Task6TrainSearch : MonoBehaviour
         speechBubbleBigAnimator.SetTrigger(openTrigger);
         yield return new WaitForSeconds(1);
         StartCoroutine(taskManager.WriteText(speechBubbleBigText, finalSpeech));
+
+        yield return new WaitForSeconds(10);
+        blackTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     internal bool isFirstTask() {

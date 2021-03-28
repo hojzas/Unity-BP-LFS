@@ -57,7 +57,7 @@ public class Task2OperatorCallStart : MonoBehaviour
         StartCoroutine(taskManager.WriteText(speechBubble, introduce));
 
         // TODO: popsat situaci
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         StartCoroutine(taskManager.WriteText(speechBubble, "TODO: Popsat situaci"));
         yield return new WaitForSeconds(3);
 

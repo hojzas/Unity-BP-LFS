@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrainWagon2.unity
     guid: 07d578056c98aa54e937a59229e7cd30
+  - enabled: 1
+    path: Assets/Scenes/Outro1.unity
+    guid: 67324de573e4dde439dff2074f16e925
+  - enabled: 1
+    path: Assets/Scenes/Outro2.unity
+    guid: f268a3de1e4e9564089997256311872e
   m_configObjects: {}

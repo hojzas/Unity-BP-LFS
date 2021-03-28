@@ -10,7 +10,7 @@ public class PlayerPickUpMobile : MonoBehaviour {
 
     [SerializeField] GameObject mobileScreen = default;
 
-    //[SerializeField] GameObject doggy = default;
+    [SerializeField] GameObject doggy = default;
 
     SpriteRenderer spriteRenderer;
 
@@ -23,19 +23,15 @@ public class PlayerPickUpMobile : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider2D) {
         if (collider2D == mobile.GetComponent<Collider2D>()) {
             playerController.playerMovement.StopAndIdle();
+            playerController.player.SetActive(false);
             playerController.playerMovement.target.SetActive(false);
+            playerController.playerMovement.PlayerFlipX();
 
             // Task complete, hide
             playerController.taskManager.task1TakeMobile.Disable();
 
-            playerController.playerMovement.PlayerFlipX();
-
-            // Move mobile to players hand
-            mobile.transform.position = new Vector2(transform.position.x - 0.75f, transform.position.y + 1.15f);
-            mobile.transform.localScale *= new Vector2(0.9f, 0.9f);
-            mobile.GetComponent<Animator>().enabled = false;
-            mobile.GetComponent<SpriteRenderer>().flipX = true;
-            mobile.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            // Hide mobile
+            mobile.SetActive(false);
             
             // Show detailed mobile screen
             mobileScreen.transform.Find("MobileKeyboard").gameObject.SetActive(true);
@@ -43,11 +39,8 @@ public class PlayerPickUpMobile : MonoBehaviour {
             playerController.walkEnable = false;
 
             // Display doggy
-            /*
             doggy.SetActive(true);
             doggy.GetComponent<Animator>().SetTrigger("Normal");
-            doggy.transform.Find("SpeechBubble").gameObject.SetActive(true);
-            */
         }
     }
 }

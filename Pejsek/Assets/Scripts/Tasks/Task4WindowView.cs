@@ -10,6 +10,7 @@ public class Task4WindowView : MonoBehaviour
     [SerializeField] PlayerController playerController = default;
     [SerializeField] CameraMovement cameraMovement = default;
     [SerializeField] MoveLandscape moveLandscape = default;
+    [SerializeField] GameObject doggy = default;
 
     [Header("Speech bubble")]
     [SerializeField] GameObject speechBubbleOneLine = default;
@@ -40,6 +41,8 @@ public class Task4WindowView : MonoBehaviour
 
     IEnumerator StartTask() {
         // Enable walk, hide mobile phone
+        doggy.SetActive(false);
+        playerController.player.SetActive(true);
         playerController.walkEnable = true;
         playerController.playerPickUpMobile.mobile.SetActive(false);
 
