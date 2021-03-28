@@ -21,6 +21,7 @@ public class Task4WindowView : MonoBehaviour
     [SerializeField] GameObject swipeHint = default;
     [SerializeField] GameObject tapHint = default;
     [SerializeField] Button towerButton = default;
+    [SerializeField] AudioSource tapTowerSound = default;
 
     [Header("Operator's speech")]
     string question = "Výborně, ale musíme to vědět přesně," + System.Environment.NewLine + "je vidět nějaký výrazný bod?";
@@ -74,6 +75,7 @@ public class Task4WindowView : MonoBehaviour
 
         if (taskManager.moveLandscape.currentPosition == -2) {
 
+            tapTowerSound.Play();
             moveLandscape.towerClicked = true;
             tapHint.SetActive(false);
             towerButton.enabled = false;

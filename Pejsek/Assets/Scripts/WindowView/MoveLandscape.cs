@@ -16,7 +16,7 @@ public class MoveLandscape : MonoBehaviour
     [SerializeField] GameObject arrowRight = default;
     [SerializeField] GameObject arrowLeft = default;
 
-    [SerializeField] AudioSource swipeAudio = default;
+    [SerializeField] AudioSource swipeSound = default;
 
     Vector2 swipeStart, swipeEnd;
     Vector3 landscapePositionStart, landscapePositionEnd;
@@ -59,7 +59,7 @@ public class MoveLandscape : MonoBehaviour
         // Landscape is moving
         moving = true;
         moveTime = 0f;
-        swipeAudio.Play();
+        swipeSound.Play();
         landscapePositionStart = transform.position;
         transfer = Screen.width / 4;
 

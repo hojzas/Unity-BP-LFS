@@ -8,6 +8,10 @@ public class Task3Location : MonoBehaviour
 {
     [SerializeField] internal TaskManager taskManager = default;
 
+    [Header("Sounds")]
+    [SerializeField] AudioSource wrongAnswerSound = default;
+    [SerializeField] AudioSource correctAnswerSound = default;
+
     [Header("Speech bubble")]
     [SerializeField] TextMeshProUGUI speechBubbleText = default;
 
@@ -51,18 +55,21 @@ public class Task3Location : MonoBehaviour
     IEnumerator WrongAnswer(Button button) {
 
         // Disable wrong answer button
+        wrongAnswerSound.Play();
         button.interactable = false;
         button.GetComponentInChildren<TextMeshProUGUI>().color = new Color32(158, 158, 158, 255);
 
         // Feedback
         StartCoroutine(taskManager.WriteText(speechBubbleText, wrongAnswer));
         enableButtons(false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5);
         enableButtons(true);
     }
 
     // Correct answer selected
-    private void CorrectAnswer() {
+    private IEnumerator CorrectAnswer() {
+        correctAnswerSound.Play();
+        yield return new WaitForSeconds(0.5f);
         answers.SetActive(false);
         darkBackground.SetActive(false);
 
@@ -82,7 +89,7 @@ public class Task3Location : MonoBehaviour
 
     internal void AnswerSelected(Button button) {
         if (button.name == "Correct") {
-            CorrectAnswer();
+            StartCoroutine(CorrectAnswer());
         } else {
             StartCoroutine(WrongAnswer(button));
         }
