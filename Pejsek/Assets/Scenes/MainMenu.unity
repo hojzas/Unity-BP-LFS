@@ -176,6 +176,7 @@ MonoBehaviour:
   aboutPanelAnimator: {fileID: 1400155204}
   aboutButtonAnimator: {fileID: 281021621}
   quitButtonAnimator: {fileID: 184009616}
+  startButtonAnimator: {fileID: 359705655}
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &92132441
@@ -845,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -933,7 +934,7 @@ Animator:
   m_GameObject: {fileID: 359705650}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a631e57967efdd445a0e2201eed42e46, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9644acfd324926b4abdc4412f084b5c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

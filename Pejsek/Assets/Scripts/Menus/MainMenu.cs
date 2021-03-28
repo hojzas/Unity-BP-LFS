@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Animator aboutPanelAnimator = default;
     [SerializeField] Animator aboutButtonAnimator = default;
     [SerializeField] Animator quitButtonAnimator = default;
+    [SerializeField] Animator startButtonAnimator = default;
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
     }
 
     IEnumerator LoadGame() {
+        startButtonAnimator.SetTrigger("Pressed");
         blackTransition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);

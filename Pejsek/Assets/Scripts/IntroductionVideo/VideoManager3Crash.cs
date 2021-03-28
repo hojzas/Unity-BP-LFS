@@ -75,7 +75,7 @@ public class VideoManager3Crash : MonoBehaviour
 
         StartCoroutine(soundManager.VolumeDown(0.0025f));
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         NextScene();
     }

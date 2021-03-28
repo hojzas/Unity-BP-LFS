@@ -62,12 +62,13 @@ public class Task3Location : MonoBehaviour
         // Feedback
         StartCoroutine(taskManager.WriteText(speechBubbleText, wrongAnswer));
         enableButtons(false);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4.5f);
         enableButtons(true);
     }
 
     // Correct answer selected
     private IEnumerator CorrectAnswer() {
+        enableButtons(false);
         correctAnswerSound.Play();
         yield return new WaitForSeconds(0.5f);
         answers.SetActive(false);
