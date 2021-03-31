@@ -11,6 +11,6 @@ public class OnClickInteractive : MonoBehaviour
     }
 
     void OnMouseDown() {
-        animator.SetTrigger("Flip");
+        animator.SetTrigger("Play");
     }
 }

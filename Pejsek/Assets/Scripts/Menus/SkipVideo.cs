@@ -41,7 +41,7 @@ public class SkipVideo : MonoBehaviour
 
     public void Skip() {
         if (!pauseMenu.paused) {
-            StartCoroutine(soundManager.VolumeDown(0.05f));
+            StartCoroutine(soundManager.VolumeDown(0.04f));
             StartCoroutine(SkipTransition());
         }
     }

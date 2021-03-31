@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
 
     [SerializeField] Collider2D walkArea = default;
+    [SerializeField] Transform underWindow = default;
+    [SerializeField] Transform nearDoor = default;
 
     [Header("Animations")]
     [SerializeField] AnimationClip animationIdle = default;
@@ -20,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] internal GameObject target = default;
 
-    internal bool isMoving; //destinationReached = false;
+    internal bool isMoving = false;
+    bool goUnderTheWindow, goToTheDoor = false;
     Touch touch;
     Vector3 touchPosition, destination;
 
@@ -83,6 +86,36 @@ public class PlayerMovement : MonoBehaviour
             }            
         }
 
+        // Fixed destination set
+        // When clicking on the arrow, window or door (these objects are not in clickable allowed walk area)
+        if (goUnderTheWindow || goToTheDoor) {
+
+            if (goUnderTheWindow) {
+                touchPosition = underWindow.position;
+                destination = (underWindow.position - transform.position).normalized;
+            } else {
+                touchPosition = nearDoor.position;
+                destination = (nearDoor.position - transform.position).normalized;
+            }
+
+            // Same as above
+            previousPosition = currentPosition = 0;
+            isMoving = true;
+            animator.Play(animationRun.name);
+
+            // Check player sprite flip
+            if (destination.x < 0) {
+                spriteRenderer.flipX = true;
+            } else {
+                spriteRenderer.flipX = false;
+            }
+
+            rigidb2D.velocity = new Vector2(destination.x * moveSpeed, destination.y * moveSpeed);
+
+            // Reset
+            goUnderTheWindow = goToTheDoor = false;
+        }
+
         // Destination is reached
         if(currentPosition > previousPosition) {
 
@@ -126,5 +159,15 @@ public class PlayerMovement : MonoBehaviour
 
     internal void PlayerFlipX() {
         spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+
+    // Setter goUnderTheWindow
+    internal void SetGoUnderTheWindow() {
+        goUnderTheWindow = true;
+    }
+
+    // Setter goToTheDoor
+    internal void SetgoToTheDoor() {
+        goToTheDoor = true;
     }
 }

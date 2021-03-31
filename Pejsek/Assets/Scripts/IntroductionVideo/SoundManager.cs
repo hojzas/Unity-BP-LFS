@@ -102,6 +102,9 @@ public class SoundManager : MonoBehaviour
 
         while (audioSrc.volume > 0) {
             audioSrc.volume -= decrement;
+
+            if (stationNoise != null) stationNoise.volume -= decrement;
+
             yield return null;
         }
 
