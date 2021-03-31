@@ -6,6 +6,7 @@ using TMPro;
 
 public class MobileButtonsControl : MonoBehaviour
 {
+    [SerializeField] SoundManagement soundManagement = default;
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] TMP_Text mobileText = default;
     [SerializeField] GameObject doggy = default;
@@ -31,7 +32,7 @@ public class MobileButtonsControl : MonoBehaviour
     // Display clicked button number
     public void DisplayNumber(string number) {
         if (mobileText.text.Length < 9 && buttonsEnable) {
-            audioButton.Play();
+            if (!soundManagement.IsSoundMute()) audioButton.Play();
             mobileText.text += number;
         }
     }
@@ -39,7 +40,7 @@ public class MobileButtonsControl : MonoBehaviour
     // Remove last number
     public void Backspace() {
         if(mobileText.text.Length > 0 && buttonsEnable) {
-            audioButton.Play();
+            if (!soundManagement.IsSoundMute()) audioButton.Play();
             mobileText.text = mobileText.text.Remove(mobileText.text.Length - 1, 1);
         }
     }
@@ -49,13 +50,14 @@ public class MobileButtonsControl : MonoBehaviour
 
         if (buttonsEnable) {
 
-            audioButton.Play();
+            if (!soundManagement.IsSoundMute()) audioButton.Play();
 
             if(mobileText.text == "155" || mobileText.text == "112") {
                 // Correct, call
                 EnableButtons(false);
                 mobileAnimator.Play("Phone_call");
-                audioCall.Play();
+
+                if (!soundManagement.IsSoundMute()) audioCall.Play();
 
                 // Doggy feedback
                 doggyAnimator.ResetTrigger("Wrong");
@@ -99,7 +101,7 @@ public class MobileButtonsControl : MonoBehaviour
 
     // Wrong number feedback
     IEnumerator WrongNumber() {
-        audioWrongNumber.Play();
+        if (!soundManagement.IsSoundMute()) audioWrongNumber.Play();
 
         EnableButtons(false);
 

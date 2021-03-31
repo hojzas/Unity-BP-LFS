@@ -55,21 +55,21 @@ public class Task3Location : MonoBehaviour
     IEnumerator WrongAnswer(Button button) {
 
         // Disable wrong answer button
-        wrongAnswerSound.Play();
+        if (!taskManager.soundManagement.IsSoundMute()) wrongAnswerSound.Play();
         button.interactable = false;
         button.GetComponentInChildren<TextMeshProUGUI>().color = new Color32(158, 158, 158, 255);
 
         // Feedback
         StartCoroutine(taskManager.WriteText(speechBubbleText, wrongAnswer));
         enableButtons(false);
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4);
         enableButtons(true);
     }
 
     // Correct answer selected
     private IEnumerator CorrectAnswer() {
         enableButtons(false);
-        correctAnswerSound.Play();
+        if (!taskManager.soundManagement.IsSoundMute()) correctAnswerSound.Play();
         yield return new WaitForSeconds(0.5f);
         answers.SetActive(false);
         darkBackground.SetActive(false);

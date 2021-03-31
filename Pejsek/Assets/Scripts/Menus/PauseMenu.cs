@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] SoundManagement soundManagement = default;
+
     [Header("Pause menu settings")]
     [SerializeField] Button pauseButton = default;
     [SerializeField] GameObject aboutPanel = default;
@@ -17,15 +20,25 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] Animator blackTransition = default;
 
+    [Header("Buttons")]
+    [SerializeField] GameObject muteMusicButton = default;
+    [SerializeField] GameObject unMuteMusicButton = default;
+    [SerializeField] GameObject muteSoundsButton = default;
+    [SerializeField] GameObject unMuteSoundsButton = default;
+
+     [Header("Background music audio source")]
+    [SerializeField] AudioSource backgroundMusic = default;
+
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
 
     Animator pauseButtonAnimator;
-    private AudioSource[] audioSources;
     internal bool paused = false;
 
     bool menuDisabled = false;
+
+    Dictionary<AudioSource,float> sourcesAndVolumes;
 
     void Start()
     {
@@ -42,6 +55,8 @@ public class PauseMenu : MonoBehaviour
 
         PauseAudio(true);
 
+        GetSoiundAndMusicButtons();
+
         // Open pause menu
         pauseMenuAnimator.SetTrigger(openTrigger);
         pauseMenuAnimator.ResetTrigger(closeTrigger);
@@ -53,6 +68,24 @@ public class PauseMenu : MonoBehaviour
         if (skipButtonAnimator != null) {
             skipButtonAnimator.SetTrigger(closeTrigger);
             skipButtonAnimator.ResetTrigger(openTrigger);
+        }
+    }
+
+    void GetSoiundAndMusicButtons() {
+        if (soundManagement.IsSoundMute()) {
+            muteSoundsButton.SetActive(false);
+            unMuteSoundsButton.SetActive(true);
+        } else {
+            unMuteSoundsButton.SetActive(false);
+            muteSoundsButton.SetActive(true);
+        }
+
+        if (soundManagement.IsMusicMute()) {
+            muteMusicButton.SetActive(false);
+            unMuteMusicButton.SetActive(true);
+        } else {
+            unMuteMusicButton.SetActive(false);
+            muteMusicButton.SetActive(true);
         }
     }
 
@@ -84,15 +117,15 @@ public class PauseMenu : MonoBehaviour
         paused = false;
     }
 
-    // Pause/Unpause all audio sources
+    // Pause/Unpause all audio sources except background music
     void PauseAudio(bool pause) {
-        audioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        AudioSource[] audioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
         foreach(AudioSource audioSource in audioSources) {
             if (pause) {
                 audioSource.Pause();
             } else {
                 audioSource.UnPause();
-            }
+            }    
         }
     }
 
@@ -136,9 +169,41 @@ public class PauseMenu : MonoBehaviour
         aboutPanel.GetComponent<Animator>().ResetTrigger(openTrigger);
     }
 
-    // Mute music
+    // Mute/unMute music, switch buttons in pause menu
+    public void MuteMusic(bool mute) {
+        if (mute) {
+            soundManagement.MuteMusic(true);
+            muteMusicButton.SetActive(false);
+            unMuteMusicButton.SetActive(true);
 
-    // Mute sounds
+            backgroundMusic.Stop();
+        } else {
+            soundManagement.MuteMusic(false);
+            unMuteMusicButton.SetActive(false);
+            muteMusicButton.SetActive(true);
+
+            backgroundMusic.Play();
+            // Immediately pause because game is paused
+            backgroundMusic.Pause();
+        }
+    }
+
+    // Mute/unMute sounds, switch buttons in pause menu
+    public void MuteSound(bool mute) {
+        if (mute) {
+            soundManagement.MuteSound(true);
+            muteSoundsButton.SetActive(false);
+            unMuteSoundsButton.SetActive(true);
+            sourcesAndVolumes = soundManagement.MuteSounds(backgroundMusic);
+
+        } else {
+            soundManagement.MuteSound(false);
+            unMuteSoundsButton.SetActive(false);
+            muteSoundsButton.SetActive(true);
+            soundManagement.UnMuteSounds(sourcesAndVolumes, backgroundMusic);
+        }
+    }
+
 
     public void SkipToDelete() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

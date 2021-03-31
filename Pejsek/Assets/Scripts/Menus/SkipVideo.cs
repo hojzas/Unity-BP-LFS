@@ -37,17 +37,16 @@ public class SkipVideo : MonoBehaviour
 
             StartCoroutine(ButtonTimer());
         }
-        
     }
 
     public void Skip() {
         if (!pauseMenu.paused) {
+            StartCoroutine(soundManager.VolumeDown(0.05f));
             StartCoroutine(SkipTransition());
         }
     }
 
     IEnumerator SkipTransition() {
-        StartCoroutine(soundManager.VolumeDown(0.01f));
         blackTransition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);

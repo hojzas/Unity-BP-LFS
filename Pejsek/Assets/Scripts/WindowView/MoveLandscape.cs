@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveLandscape : MonoBehaviour
 {
+    [SerializeField] internal SoundManagement soundManagement = default;
+
     [Tooltip("Move duration in seconds.")]
     [SerializeField] float moveDuration = 1f;
 
@@ -59,7 +61,7 @@ public class MoveLandscape : MonoBehaviour
         // Landscape is moving
         moving = true;
         moveTime = 0f;
-        swipeSound.Play();
+        if (!soundManagement.IsSoundMute()) swipeSound.Play();
         landscapePositionStart = transform.position;
         transfer = Screen.width / 4;
 

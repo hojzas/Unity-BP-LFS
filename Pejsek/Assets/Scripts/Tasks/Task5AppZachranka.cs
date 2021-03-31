@@ -137,7 +137,7 @@ public class Task5AppZachranka : MonoBehaviour
     // Call button pressed and hold
     public void CallButtonDown() {
         holdingCallButton = true;
-        appAudio.Play();
+        if (!taskManager.soundManagement.IsSoundMute()) appAudio.Play();
     }
 
     // Call button up

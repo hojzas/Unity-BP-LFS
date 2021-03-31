@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03513494, y: 0.030240297}
+  m_Offset: {x: 0.011851072, y: 0.07680696}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.04}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6158862, y: 0.36748266}
+  m_Size: {x: 4.7047954, y: 1.4540333}
   m_EdgeRadius: 0
 --- !u!50 &3862128895050090261
 Rigidbody2D:
@@ -171,6 +171,7 @@ MonoBehaviour:
   playerCollide: {fileID: 3862128895050090256}
   playerPickUpMobile: {fileID: 3862128895050090271}
   taskManager: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &3862128895050090262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 3862128895050090258}
-  moveSpeed: 5
+  moveSpeed: 6.5
   walkArea: {fileID: 0}
   animationIdle: {fileID: 7400000, guid: a5becf613c702504d8c458a96d460cd0, type: 2}
   animationRun: {fileID: 7400000, guid: b4a9e7ee9c34aad429a914ec2b266da4, type: 2}
@@ -218,6 +219,7 @@ MonoBehaviour:
   playerController: {fileID: 3862128895050090258}
   mobile: {fileID: 0}
   mobileScreen: {fileID: 0}
+  doggy: {fileID: 0}
 --- !u!114 &3862128895050090256
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,13 +14,26 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Animator aboutButtonAnimator = default;
     [SerializeField] Animator quitButtonAnimator = default;
     [SerializeField] Animator startButtonAnimator = default;
+    [SerializeField] AudioSource backgroundMusic = default;
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
 
     public void StartGame() {
+        StartCoroutine(BackgroundMusicVolumeDown());
         StartCoroutine(LoadGame());
+    }
+
+    // Set volume of music slowly down
+    IEnumerator BackgroundMusicVolumeDown() {
+
+        while (backgroundMusic.volume > 0) {
+            backgroundMusic.volume -= 0.01f;
+            yield return null;
+        }
+
+        backgroundMusic.Stop();
     }
 
     IEnumerator LoadGame() {

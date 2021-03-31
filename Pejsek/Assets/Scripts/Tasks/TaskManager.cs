@@ -15,6 +15,8 @@ public class TaskManager : MonoBehaviour
 
     [SerializeField] internal MoveLandscape moveLandscape = default;
 
+    [SerializeField] internal SoundManagement soundManagement = default;
+
 
     [Header("Speed of writing text into a speech bubble")]
     [SerializeField] float speed = 0.05f;
