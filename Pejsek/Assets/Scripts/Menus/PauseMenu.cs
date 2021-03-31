@@ -55,12 +55,13 @@ public class PauseMenu : MonoBehaviour
 
         PauseAudio(true);
 
-        GetSoiundAndMusicButtons();
+        GetSoundAndMusicButtons();
 
         // Open pause menu
         pauseMenuAnimator.SetTrigger(openTrigger);
         pauseMenuAnimator.ResetTrigger(closeTrigger);
         paused = true;
+
         // Close pause button
         pauseButtonAnimator.SetTrigger(closeTrigger);
         pauseButtonAnimator.ResetTrigger(openTrigger);
@@ -71,7 +72,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void GetSoiundAndMusicButtons() {
+    void GetSoundAndMusicButtons() {
         if (soundManagement.IsSoundMute()) {
             muteSoundsButton.SetActive(false);
             unMuteSoundsButton.SetActive(true);
@@ -194,6 +195,7 @@ public class PauseMenu : MonoBehaviour
             soundManagement.MuteSound(true);
             muteSoundsButton.SetActive(false);
             unMuteSoundsButton.SetActive(true);
+            // Mute all sounds, save their audio source volume
             sourcesAndVolumes = soundManagement.MuteSounds(backgroundMusic);
 
         } else {
@@ -205,8 +207,8 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void SkipToDelete() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+                                                                    public void SkipToDelete() {
+                                                                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                                                                    }
 
 }

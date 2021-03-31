@@ -75,7 +75,7 @@ public class Task4WindowView : MonoBehaviour
 
         if (taskManager.moveLandscape.currentPosition == -2) {
 
-            if (!taskManager.soundManagement.IsSoundMute()) tapTowerSound.Play();
+            taskManager.soundManagement.PlayAudioSource(tapTowerSound);
             moveLandscape.towerClicked = true;
             tapHint.SetActive(false);
             towerButton.enabled = false;

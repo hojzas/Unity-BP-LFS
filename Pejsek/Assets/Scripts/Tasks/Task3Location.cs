@@ -55,7 +55,7 @@ public class Task3Location : MonoBehaviour
     IEnumerator WrongAnswer(Button button) {
 
         // Disable wrong answer button
-        if (!taskManager.soundManagement.IsSoundMute()) wrongAnswerSound.Play();
+        taskManager.soundManagement.PlayAudioSource(wrongAnswerSound);
         button.interactable = false;
         button.GetComponentInChildren<TextMeshProUGUI>().color = new Color32(158, 158, 158, 255);
 
@@ -69,7 +69,7 @@ public class Task3Location : MonoBehaviour
     // Correct answer selected
     private IEnumerator CorrectAnswer() {
         enableButtons(false);
-        if (!taskManager.soundManagement.IsSoundMute()) correctAnswerSound.Play();
+        taskManager.soundManagement.PlayAudioSource(correctAnswerSound);
         yield return new WaitForSeconds(0.5f);
         answers.SetActive(false);
         darkBackground.SetActive(false);

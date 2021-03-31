@@ -35,7 +35,7 @@ public class OnPassengerClick : MonoBehaviour
 
                 // Display plus effect animation & sound
                 animatorPlusEffect.SetTrigger("Found");
-                if (!taskManager.soundManagement.IsSoundMute()) audioSource.Play();
+                taskManager.soundManagement.PlayAudioSource(audioSource);
                 
                 taskManager.task6TrainSearch.PassengerTap();
                 found = true;

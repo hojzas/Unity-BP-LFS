@@ -32,7 +32,7 @@ public class MobileButtonsControl : MonoBehaviour
     // Display clicked button number
     public void DisplayNumber(string number) {
         if (mobileText.text.Length < 9 && buttonsEnable) {
-            if (!soundManagement.IsSoundMute()) audioButton.Play();
+            soundManagement.PlayAudioSource(audioButton);
             mobileText.text += number;
         }
     }
@@ -40,7 +40,7 @@ public class MobileButtonsControl : MonoBehaviour
     // Remove last number
     public void Backspace() {
         if(mobileText.text.Length > 0 && buttonsEnable) {
-            if (!soundManagement.IsSoundMute()) audioButton.Play();
+            soundManagement.PlayAudioSource(audioButton);
             mobileText.text = mobileText.text.Remove(mobileText.text.Length - 1, 1);
         }
     }
@@ -50,14 +50,14 @@ public class MobileButtonsControl : MonoBehaviour
 
         if (buttonsEnable) {
 
-            if (!soundManagement.IsSoundMute()) audioButton.Play();
+            soundManagement.PlayAudioSource(audioButton);
 
             if(mobileText.text == "155" || mobileText.text == "112") {
                 // Correct, call
                 EnableButtons(false);
                 mobileAnimator.Play("Phone_call");
 
-                if (!soundManagement.IsSoundMute()) audioCall.Play();
+                soundManagement.PlayAudioSource(audioCall);
 
                 // Doggy feedback
                 doggyAnimator.ResetTrigger("Wrong");
@@ -101,7 +101,7 @@ public class MobileButtonsControl : MonoBehaviour
 
     // Wrong number feedback
     IEnumerator WrongNumber() {
-        if (!soundManagement.IsSoundMute()) audioWrongNumber.Play();
+        soundManagement.PlayAudioSource(audioWrongNumber);
 
         EnableButtons(false);
 

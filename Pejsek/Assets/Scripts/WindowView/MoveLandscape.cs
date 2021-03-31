@@ -61,7 +61,7 @@ public class MoveLandscape : MonoBehaviour
         // Landscape is moving
         moving = true;
         moveTime = 0f;
-        if (!soundManagement.IsSoundMute()) swipeSound.Play();
+        soundManagement.PlayAudioSource(swipeSound);
         landscapePositionStart = transform.position;
         transfer = Screen.width / 4;
 

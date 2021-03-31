@@ -9,7 +9,7 @@ public class Task3LocationSounds : MonoBehaviour
     [SerializeField] AudioSource answersMoveSound = default;
 
     public void PlayMoveSound() {
-        if (!soundManagement.IsSoundMute()) answersMoveSound.Play();
+        soundManagement.PlayAudioSource(answersMoveSound);
     }
     
 }

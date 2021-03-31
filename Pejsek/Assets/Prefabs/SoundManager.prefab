@@ -141,6 +141,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSrc: {fileID: 1098425965710707442}
+  stationNoise: {fileID: 0}
   trainBraking: {fileID: 8300000, guid: 7d3a495193bd3b640a9f11ba948f7317, type: 3}
   trainDepart: {fileID: 8300000, guid: 8cfe9f71c835949428d4384e607499d3, type: 3}
   trainDoorOpening: {fileID: 8300000, guid: f014ef325990d6c41b1107a623402a00, type: 3}
+  trainPassingBy: {fileID: 0}
+  landslide: {fileID: 0}
+  cliff: {fileID: 0}
+  digging: {fileID: 0}
+  trainCrash: {fileID: 0}
+  trainPreCrash: {fileID: 0}
+  helicopterTakeOff: {fileID: 0}
+  birdSing: {fileID: 0}
+  ambulance: {fileID: 0}
