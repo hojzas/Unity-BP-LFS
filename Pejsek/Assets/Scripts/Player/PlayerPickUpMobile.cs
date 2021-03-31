@@ -29,8 +29,6 @@ public class PlayerPickUpMobile : MonoBehaviour {
 
             // Task complete, hide
             playerController.taskManager.task1TakeMobile.Disable();
-
-            // Hide mobile
             mobile.SetActive(false);
             
             // Show detailed mobile screen

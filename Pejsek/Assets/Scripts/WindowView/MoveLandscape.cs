@@ -26,13 +26,12 @@ public class MoveLandscape : MonoBehaviour
     float moveTime, transfer;
     internal int currentPosition = 0;
     internal bool towerClicked = false;
-    bool moving = false;
-    bool swipeLock = false;
+    bool moving = false, swipeLock = false;
 
     // Update is called once per frame
     void FixedUpdate() {
 
-        // Recognize swipe
+        // Detect swipe
         if (Input.touchCount > 0 && !moving && !swipeLock) {
 
             if (Input.GetTouch(0).phase == TouchPhase.Began) {  

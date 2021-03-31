@@ -10,7 +10,6 @@ public class PlayerScale : MonoBehaviour
 
     internal float scale;
     float scaleValue;
-
     bool normal = true;
 
     // Start is called before the first frame update

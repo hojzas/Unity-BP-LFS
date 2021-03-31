@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SkipVideo : MonoBehaviour
 {
     [SerializeField] Animator blackTransition = default;
-
     [SerializeField] SoundManager soundManager = default;
     [SerializeField] PauseMenu pauseMenu = default;
 
@@ -25,7 +24,7 @@ public class SkipVideo : MonoBehaviour
     bool buttonsVisible = false;
 
     void Update() {
-        // If detect touch, game is not paused and buttons are not allready shown
+        // Display control buttons when touch is detect, game is not paused and buttons are not allready shown
         if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && !pauseMenu.paused && !buttonsVisible) {
             pauseButtonAnimator.ResetTrigger(closeTrigger);
             skipButtonAnimator.ResetTrigger(closeTrigger);
@@ -39,6 +38,7 @@ public class SkipVideo : MonoBehaviour
         }
     }
 
+    // Skip video
     public void Skip() {
         if (!pauseMenu.paused) {
             StartCoroutine(soundManager.VolumeDown(0.04f));
@@ -52,6 +52,7 @@ public class SkipVideo : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    // Display buttons timer
     IEnumerator ButtonTimer() {
         yield return new WaitForSeconds(displayDuration);
 

@@ -11,10 +11,12 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Animator blackTransition = default;
     [SerializeField] Animator aboutPanelAnimator = default;
+    [SerializeField] AudioSource backgroundMusic = default;
+
+     [Header("Buttons")]
     [SerializeField] Animator aboutButtonAnimator = default;
     [SerializeField] Animator quitButtonAnimator = default;
     [SerializeField] Animator startButtonAnimator = default;
-    [SerializeField] AudioSource backgroundMusic = default;
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -25,7 +27,7 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(LoadGame());
     }
 
-    // Set volume of music slowly down
+    // Set music volume slowly down
     IEnumerator BackgroundMusicVolumeDown() {
 
         while (backgroundMusic.volume > 0) {
@@ -36,6 +38,7 @@ public class MainMenu : MonoBehaviour
         backgroundMusic.Stop();
     }
 
+    // Start the game
     IEnumerator LoadGame() {
         startButtonAnimator.SetTrigger("Pressed");
         blackTransition.SetTrigger("Start");
@@ -45,6 +48,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    // Display about game panel
     public void AboutGame() {
         aboutPanelAnimator.SetTrigger(openTrigger);
         aboutPanelAnimator.ResetTrigger(closeTrigger);
@@ -56,6 +60,7 @@ public class MainMenu : MonoBehaviour
         quitButtonAnimator.ResetTrigger(openTrigger);
     }
 
+    // Close about game panel
     public void CloseAboutGame() {
         aboutPanelAnimator.SetTrigger(closeTrigger);
         aboutPanelAnimator.ResetTrigger(openTrigger);
@@ -67,6 +72,7 @@ public class MainMenu : MonoBehaviour
         quitButtonAnimator.ResetTrigger(closeTrigger);
     }
 
+    // Quit game
     public void QuitGame() {
         Application.Quit();
     }

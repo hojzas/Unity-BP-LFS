@@ -19,6 +19,7 @@ public class OnPassengerClick : MonoBehaviour
         audioSource = plusEffect.gameObject.GetComponent<AudioSource>();
     }
 
+    // On passenger tap
     void OnMouseDown() {
 
         if (taskManager.task6TrainSearch.clickingEnable && !pauseMenu.paused) {

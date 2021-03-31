@@ -7,9 +7,8 @@ public class SoundManagement : MonoBehaviour
     [SerializeField] AudioSource backgroundMusic = default;
     [SerializeField] bool isVideoScene = false;
 
-    // Static, so the state of sound and music can be load in every scene
-    static bool soundIsMute = false;
-    static bool musicIsMute = false;
+    // Static, so the state of sound and music can be load in any scene
+    static bool soundIsMute = false, musicIsMute = false;
 
     AudioSource[] audioSources;
 
@@ -24,8 +23,7 @@ public class SoundManagement : MonoBehaviour
         return isVideoScene;
     }
 
-
-    // ************* Sound *************
+    // ************************** Sound **************************
     // soundIsMute getter
     internal bool IsSoundMute() {
         return soundIsMute;
@@ -43,10 +41,12 @@ public class SoundManagement : MonoBehaviour
         }
     }
 
-    // Mute sounds, save and return sound volume values
+    // Mute sounds, save and return sound volume values in generic collection
     internal Dictionary<AudioSource, float> MuteSounds(AudioSource backgroundMusic)
     {
         var volumes = new Dictionary<AudioSource, float>();
+
+        // Get all audio sources
         audioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
 
         // Save and set new volume value, skip only background music
@@ -73,13 +73,13 @@ public class SoundManagement : MonoBehaviour
         }
     }
 
-    // ************* Music *************
-    // musicIsMute getter
+    // ************************** Music **************************
+    // MusicIsMute getter
     internal bool IsMusicMute() {
         return musicIsMute;
     }
 
-    // musicIsMute setter
+    // MusicIsMute setter
     internal void MuteMusic(bool state) {
         musicIsMute = state;
     }

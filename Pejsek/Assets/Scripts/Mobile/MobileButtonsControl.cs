@@ -18,9 +18,7 @@ public class MobileButtonsControl : MonoBehaviour
 
     bool buttonsEnable = true;
 
-    Animator doggyAnimator;
-    Animator mobileAnimator;
-
+    Animator doggyAnimator, mobileAnimator;
     AudioSource audioCall;
 
     void Start() {
@@ -37,7 +35,7 @@ public class MobileButtonsControl : MonoBehaviour
         }
     }
 
-    // Remove last number
+    // Delete last number
     public void Backspace() {
         if(mobileText.text.Length > 0 && buttonsEnable) {
             soundManagement.PlayAudioSource(audioButton);
@@ -52,6 +50,7 @@ public class MobileButtonsControl : MonoBehaviour
 
             soundManagement.PlayAudioSource(audioButton);
 
+            // Acceptable numbers are 155 and 112
             if(mobileText.text == "155" || mobileText.text == "112") {
                 // Correct, call
                 EnableButtons(false);
@@ -67,6 +66,8 @@ public class MobileButtonsControl : MonoBehaviour
                 StartCoroutine(HideMobile());
 
                 bool call155;
+
+                // Recognition of numbers for later introduction of the operator
                 if (mobileText.text == "155") {
                     call155 = true;
                 } else {
@@ -78,8 +79,6 @@ public class MobileButtonsControl : MonoBehaviour
 
             } else {
                 // Wrong, feedback
-                // TODO text
-                //doggy.transform.Find(active).gameObject.SetActive(false);
                 
                 StartCoroutine(WrongNumber());
 
@@ -90,7 +89,7 @@ public class MobileButtonsControl : MonoBehaviour
         }
     }
 
-    // Wait few seconds, call connected
+    // Wait few seconds to connect call, than hide mobile
     public IEnumerator HideMobile() {
         yield return new WaitForSeconds(6);
         mobileAnimator.Play("MobileScreenZoomOut");

@@ -132,14 +132,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Speed down speed
     internal void SpeedDown() {
         rigidb2D.velocity = new Vector2(rigidb2D.velocity.x * 0.5f, rigidb2D.velocity.y * 0.5f);
     }
 
+    // Speed up speed
     internal void SpeedUp() {
         rigidb2D.velocity = new Vector2(rigidb2D.velocity.x * 1.5f, rigidb2D.velocity.y * 1.5f);
     }
 
+    // Player stop and play idle animation
     internal void StopAndIdle() {
         HideTarget();
         isMoving = false;
@@ -147,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         animator.Play(animationIdle.name);
     }
 
+    // Player stop
     internal void Stop() {
         HideTarget();
         isMoving = false;

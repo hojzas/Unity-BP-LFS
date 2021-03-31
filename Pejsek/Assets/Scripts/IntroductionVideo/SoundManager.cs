@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip ambulance = default;
 
 
+    // Play specific audio
     internal void PlayAudio(string audioClip) {
         switch (audioClip) {
             case "trainBraking":
@@ -76,7 +77,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // Stop all audio source audios
+    // Stop all audios
     internal void StopAudio() {
         audioSrc.Stop();
     }

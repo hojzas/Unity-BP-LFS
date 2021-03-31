@@ -32,13 +32,11 @@ public class VideoManager3Crash : MonoBehaviour
         soundManager.PlayAudio("landslide");
         soundManager.PlayAudio("digging");
 
+        // Speed up falling stones
         for (int i = 0; i < stones.transform.childCount; i++) {
             SetStoneActive(i);
-
             stoneDelay -= i / 10;
-
             if (stoneDelay < 0.3f) stoneDelay = 0.3f;
-
             yield return new WaitForSeconds(stoneDelay);
         }
         
@@ -68,6 +66,7 @@ public class VideoManager3Crash : MonoBehaviour
     }
 
 
+    // Train crash, display black screen, decrease the volume
     IEnumerator TrainCrash() {
         BlackImage.SetActive(true);
 

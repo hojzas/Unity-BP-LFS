@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// *****************************************************************************
+// Player controller - connects all player parts
+// *****************************************************************************
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Scripts")]
@@ -11,20 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] internal GameObject player = default;
 
-
     internal bool goToNextWagon = false;
 
     internal bool walkEnable = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

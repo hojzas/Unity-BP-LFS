@@ -10,6 +10,7 @@ public class OnClickInteractive : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
+    // Clicking on interactive object, play its animation
     void OnMouseDown() {
         animator.SetTrigger("Play");
     }

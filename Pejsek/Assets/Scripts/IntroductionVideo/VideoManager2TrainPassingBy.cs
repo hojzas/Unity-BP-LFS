@@ -15,7 +15,6 @@ public class VideoManager2TrainPassingBy : MonoBehaviour
         soundManager.PlayAudio("trainPassingBy");
     }
 
-    // Load next introduction scene
     void VolumeDown() {
         StartCoroutine(soundManager.VolumeDown(0.005f));
         StartCoroutine(NextScene());

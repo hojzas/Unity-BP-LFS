@@ -35,7 +35,6 @@ public class PauseMenu : MonoBehaviour
 
     Animator pauseButtonAnimator;
     internal bool paused = false;
-
     bool menuDisabled = false;
 
     Dictionary<AudioSource,float> sourcesAndVolumes;
@@ -72,6 +71,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Display the current state of the sound and music buttons
     void GetSoundAndMusicButtons() {
         if (soundManagement.IsSoundMute()) {
             muteSoundsButton.SetActive(false);
@@ -145,7 +145,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // Transition
+    // Main menu transition
     IEnumerator MainMenuTransition() {
         blackTransition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
@@ -164,6 +164,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Close about game
     public void CloseAboutGame() {
         menuDisabled = false;
         aboutPanel.GetComponent<Animator>().SetTrigger(closeTrigger);
