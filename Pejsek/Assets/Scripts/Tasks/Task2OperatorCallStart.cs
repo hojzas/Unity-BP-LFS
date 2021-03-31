@@ -10,6 +10,7 @@ public class Task2OperatorCallStart : MonoBehaviour
     [Header("Speech bubble")]
     [SerializeField] GameObject speakingIcon = default;
     [SerializeField] GameObject speechBubbleOneLine = default;
+    [SerializeField] GameObject speechBubbleDoggy = default;
 
     [Header("Operator's speech")]
     [SerializeField] string introducePart1 = "Dobrý den, ";
@@ -19,24 +20,30 @@ public class Task2OperatorCallStart : MonoBehaviour
     [TextArea]
     [SerializeField] string afterCorrectAnswer = "Dobře, neboj, společně všem zraněným pasažérům pomůžeme.";
 
+    [Header("Doggy's response")]
+    [TextArea]
+    [SerializeField] string doggyResponse = "Dobrý den, vlak kterým jsem jel měl nehodu, je tu spousta zraněných!";
+
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
 
-    Animator speechBubbleAnimator;
+    Animator speechBubbleAnimator, speechBubbleDoggyAnimator;
     Animator speakingIconAnimator;
-    TextMeshProUGUI speechBubble;
+    TextMeshProUGUI speechBubbleText, speechBubbleDoggyText;
 
     void Awake()
     {
         speechBubbleAnimator = speechBubbleOneLine.GetComponent<Animator>();
+        speechBubbleDoggyAnimator = speechBubbleDoggy.GetComponent<Animator>();
         speakingIconAnimator = speakingIcon.GetComponent<Animator>();
-        speechBubble = speechBubbleOneLine.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
+        speechBubbleText = speechBubbleOneLine.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
+        speechBubbleDoggyText = speechBubbleDoggy.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     internal IEnumerator StartCall155(bool call155) {
 
-        taskManager.ResetBubbleText(speechBubble);
+        taskManager.ResetBubbleText(speechBubbleText);
 
         yield return new WaitForSeconds(6);
 
@@ -47,25 +54,30 @@ public class Task2OperatorCallStart : MonoBehaviour
 
         // Create introduce
         string introduce = introducePart1;
-
         if (call155) {
-            introduce += introduce155 + introducePart2;
+            introduce += introduce155;
         } else {
-            introduce += introduce112 + introducePart2;
+            introduce += introduce112;
         }
+        introduce += introducePart2;
 
-        StartCoroutine(taskManager.WriteText(speechBubble, introduce));
+        StartCoroutine(taskManager.WriteText(speechBubbleText, introduce));
 
-        // TODO: popsat situaci
-        yield return new WaitForSeconds(7);
-        StartCoroutine(taskManager.WriteText(speechBubble, "TODO: Popsat situaci"));
-        yield return new WaitForSeconds(3);
+        // Doggy describes the situation
+        yield return new WaitForSeconds(4);
 
+        taskManager.ResetBubbleText(speechBubbleDoggyText);
+        speechBubbleDoggyAnimator.SetTrigger(openTrigger);
+        yield return new WaitForSeconds(1);
 
+        StartCoroutine(taskManager.WriteText(speechBubbleDoggyText, doggyResponse));
+        yield return new WaitForSeconds(6);
+        taskManager.ResetBubbleText(speechBubbleDoggyText);
+        yield return new WaitForSeconds(0.2f);
+        speechBubbleDoggyAnimator.SetTrigger(closeTrigger);
 
-        // Correct
-        StartCoroutine(taskManager.WriteText(speechBubble, afterCorrectAnswer));
-
+        // Answer
+        StartCoroutine(taskManager.WriteText(speechBubbleText, afterCorrectAnswer));
         yield return new WaitForSeconds(5);
 
         // Next task      
