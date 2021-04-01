@@ -174,10 +174,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackTransition: {fileID: 1190836698}
   aboutPanelAnimator: {fileID: 1400155204}
+  backgroundMusic: {fileID: 1441262327}
   aboutButtonAnimator: {fileID: 281021621}
   quitButtonAnimator: {fileID: 184009616}
   startButtonAnimator: {fileID: 359705655}
-  backgroundMusic: {fileID: 1441262327}
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &92132441
@@ -2038,10 +2038,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2773979}
-    - target: {fileID: 8349549910854238967, guid: 6579c74a214f94346b7286c24e2f90ef,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseAboutGame
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6579c74a214f94346b7286c24e2f90ef, type: 3}
