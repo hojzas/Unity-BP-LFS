@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     [Header("AudioSource")]
     [SerializeField] AudioSource audioSrc = default;
     [SerializeField] internal AudioSource stationNoise = default;
+    [SerializeField] SoundManagement soundManagement = default;
     
     [Header("Sounds")]
     [SerializeField] AudioClip trainBraking = default;
@@ -26,54 +27,65 @@ public class SoundManager : MonoBehaviour
 
     // Play specific audio
     internal void PlayAudio(string audioClip) {
-        switch (audioClip) {
-            case "trainBraking":
-                audioSrc.PlayOneShot(trainBraking);
-                break;
 
-            case "trainDepart":
-                audioSrc.PlayOneShot(trainDepart);
-                break;
+        if (!soundManagement.IsSoundMute()) {
 
-            case "trainDoorOpening":
-                audioSrc.PlayOneShot(trainDoorOpening);
-                break;
+            switch (audioClip) {
+                case "trainBraking":
+                    audioSrc.PlayOneShot(trainBraking);
+                    break;
 
-            case "trainPassingBy":
-                audioSrc.PlayOneShot(trainPassingBy);
-                break;
+                case "trainDepart":
+                    audioSrc.PlayOneShot(trainDepart);
+                    break;
 
-            case "landslide":
-                audioSrc.PlayOneShot(landslide);
-                break;
+                case "trainDoorOpening":
+                    audioSrc.PlayOneShot(trainDoorOpening);
+                    break;
 
-            case "digging":
-                audioSrc.PlayOneShot(digging);
-                break;
+                case "trainPassingBy":
+                    audioSrc.PlayOneShot(trainPassingBy);
+                    break;
 
-            case "cliff":
-                audioSrc.PlayOneShot(cliff);
-                break;
+                case "landslide":
+                    audioSrc.PlayOneShot(landslide);
+                    break;
 
-            case "trainCrash":
-                audioSrc.PlayOneShot(trainCrash);
-                break;
+                case "digging":
+                    audioSrc.PlayOneShot(digging);
+                    break;
 
-            case "trainPreCrash":
-                audioSrc.PlayOneShot(trainPreCrash);
-                break;
+                case "cliff":
+                    audioSrc.PlayOneShot(cliff);
+                    break;
 
-            case "helicopterTakeOff":
-                audioSrc.PlayOneShot(helicopterTakeOff);
-                break;
+                case "trainCrash":
+                    audioSrc.PlayOneShot(trainCrash);
+                    break;
 
-            case "birdSing":
-                audioSrc.PlayOneShot(birdSing);
-                break;
+                case "trainPreCrash":
+                    audioSrc.PlayOneShot(trainPreCrash);
+                    break;
 
-            case "ambulance":
-                audioSrc.PlayOneShot(ambulance);
-                break;
+                case "helicopterTakeOff":
+                    audioSrc.PlayOneShot(helicopterTakeOff);
+                    break;
+
+                case "birdSing":
+                    audioSrc.PlayOneShot(birdSing);
+                    break;
+
+                case "ambulance":
+                    audioSrc.PlayOneShot(ambulance);
+                    break;
+            }
+        }
+    }
+
+    internal void PlayStationNoise() {
+
+        if (!soundManagement.IsSoundMute()) {
+            stationNoise.Play();
         }
     }
 
@@ -84,16 +96,20 @@ public class SoundManager : MonoBehaviour
 
     // Set volume to value <0, 1>
     internal void SetVolumeValue(float value) {
-        audioSrc.volume = value;
+        if (!soundManagement.IsSoundMute()) {
+            audioSrc.volume = value;
+        }
     }
 
     // Set volume up slowly (by increment) below maximum value
     internal IEnumerator VolumeUp(float increment, float maximum) {
         audioSrc.volume = 0;
 
-        while (audioSrc.volume < maximum) {
-            audioSrc.volume += increment;
-            yield return null;
+        if (!soundManagement.IsSoundMute()) {
+            while (audioSrc.volume < maximum) {
+                audioSrc.volume += increment;
+                yield return null;
+            }
         }
 
     }
@@ -101,12 +117,14 @@ public class SoundManager : MonoBehaviour
     // Set volume down by decrement
     internal IEnumerator VolumeDown(float decrement) {
 
-        while (audioSrc.volume > 0) {
-            audioSrc.volume -= decrement;
+        if (!soundManagement.IsSoundMute()) {
+            while (audioSrc.volume > 0) {
+                audioSrc.volume -= decrement;
 
-            if (stationNoise != null) stationNoise.volume -= decrement;
+                if (stationNoise != null) stationNoise.volume -= decrement;
 
-            yield return null;
+                yield return null;
+            }
         }
 
         audioSrc.Stop();

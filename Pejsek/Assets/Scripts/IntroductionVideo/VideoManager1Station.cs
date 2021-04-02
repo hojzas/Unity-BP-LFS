@@ -14,7 +14,7 @@ public class VideoManager1Station : MonoBehaviour
         StartCoroutine(soundManager.VolumeUp(0.01f, 1));
         
         soundManager.PlayAudio("trainDepart");
-        soundManager.stationNoise.Play();
+        soundManager.PlayStationNoise();
     }
 
     // Load next introduction scene

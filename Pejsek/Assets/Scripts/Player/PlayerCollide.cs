@@ -17,13 +17,13 @@ public class PlayerCollide : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider2D) {
 
         // Collides with door -> goes to next scene (wagon)
-        if (collider2D == doorIndicator.GetComponent<Collider2D>()) {
+        if (doorIndicator != null && collider2D == doorIndicator.GetComponent<Collider2D>()) {
             playerController.goToNextWagon = true;
             playerController.walkEnable = false;
             doorIndicator.SetActive(false);
 
         // Enter window view
-        } else if (collider2D == windowIndicator.GetComponent<Collider2D>()) {
+        } else if (windowIndicator != null && collider2D == windowIndicator.GetComponent<Collider2D>()) {
             playerController.walkEnable = false;
             windowIndicator.SetActive(false);
 

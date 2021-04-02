@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPickUpMobile : MonoBehaviour { 
 
     [SerializeField] PlayerController playerController = default;
+    [SerializeField] MobileButtonsControl mobileButtonsControl = default;
 
     [SerializeField] internal GameObject mobile = default;
 
@@ -21,7 +22,9 @@ public class PlayerPickUpMobile : MonoBehaviour {
 
     // Player collides with mobile phone -> stop, pick up and show detailed mobile screen
     void OnTriggerEnter2D(Collider2D collider2D) {
-        if (collider2D == mobile.GetComponent<Collider2D>()) {
+        if (mobile != null && collider2D == mobile.GetComponent<Collider2D>()) {
+            mobileButtonsControl.DisplaySpeechBubble();
+
             playerController.playerMovement.StopAndIdle();
             playerController.player.SetActive(false);
             playerController.playerMovement.target.SetActive(false);

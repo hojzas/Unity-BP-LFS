@@ -12,19 +12,45 @@ public class MobileButtonsControl : MonoBehaviour
     [SerializeField] GameObject doggy = default;
     [SerializeField] Animator MobileTextAnimator = default;
 
+    [Header("Speech bubble")]
+    [SerializeField] GameObject speechBubble = default;
+    [TextArea]
+    [SerializeField] string doggyCall155Text = "Vytoč číslo záchranné služby!";
+
     [Header("Sounds")]
     [SerializeField] AudioSource audioButton = default;
     [SerializeField] AudioSource audioWrongNumber = default;
 
     bool buttonsEnable = true;
 
-    Animator doggyAnimator, mobileAnimator;
+    Animator doggyAnimator, mobileAnimator, speechBubbleAnimator;
+    TextMeshProUGUI speechBubbleText;
     AudioSource audioCall;
 
     void Start() {
         doggyAnimator = doggy.GetComponent<Animator>();
         mobileAnimator = transform.Find("MobileKeyboard").gameObject.GetComponent<Animator>();
         audioCall = gameObject.GetComponent<AudioSource>();
+
+        // Speech bubble
+        speechBubbleAnimator = speechBubble.GetComponent<Animator>();
+        speechBubbleText = speechBubble.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
+    }
+
+    internal void DisplaySpeechBubble() {
+        StartCoroutine(DisplaySpeechBubbleDelay());
+    }
+
+    // Display doggy speech bubble text
+    IEnumerator DisplaySpeechBubbleDelay() {
+        // Open
+        yield return new WaitForSeconds(0.5f);
+        taskManager.ResetBubbleText(speechBubbleText);
+        speechBubbleAnimator.SetTrigger("Open");
+
+        // Write text
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(taskManager.WriteText(speechBubbleText, doggyCall155Text));
     }
 
     // Display clicked button number
@@ -57,6 +83,10 @@ public class MobileButtonsControl : MonoBehaviour
                 mobileAnimator.Play("Phone_call");
 
                 soundManagement.PlayAudioSource(audioCall);
+
+                // Close speech bubble
+                taskManager.ResetBubbleText(speechBubbleText);
+                speechBubbleAnimator.SetTrigger("Close");
 
                 // Doggy feedback
                 doggyAnimator.ResetTrigger("Wrong");

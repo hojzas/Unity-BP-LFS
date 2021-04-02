@@ -35,6 +35,7 @@ public class OnPassengerClick : MonoBehaviour
                 }
 
                 // Display plus effect animation & sound
+                print("gfd");
                 animatorPlusEffect.SetTrigger("Found");
                 taskManager.soundManagement.PlayAudioSource(audioSource);
                 

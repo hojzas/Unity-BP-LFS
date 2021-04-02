@@ -558,9 +558,9 @@ RectTransform:
   m_Children:
   - {fileID: 169551100}
   - {fileID: 2140264090}
+  - {fileID: 1059704017}
   - {fileID: 783235446}
   - {fileID: 797102441}
-  - {fileID: 1059704017}
   m_Father: {fileID: 45972278}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 7642412057980022380, guid: d79b14b289cdf8f4886a49d7d031d50b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7642412057980022380, guid: d79b14b289cdf8f4886a49d7d031d50b,
         type: 3}
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 8349549910033618694, guid: 6579c74a214f94346b7286c24e2f90ef,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8349549910033618694, guid: 6579c74a214f94346b7286c24e2f90ef,
         type: 3}
@@ -1249,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 1098425965710707444, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
         type: 3}
       propertyPath: m_Name
-      value: SoundManager
+      value: VideoSoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 1098425965710707445, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
         type: 3}
@@ -1281,6 +1281,11 @@ PrefabInstance:
       propertyPath: cliff
       value: 
       objectReference: {fileID: 8300000, guid: a1e49d691ba859a4399011e8319b26d4, type: 3}
+    - target: {fileID: 1098425965710707445, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
+        type: 3}
+      propertyPath: soundManagement
+      value: 
+      objectReference: {fileID: 1869355652}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd9e7f8e3947964ba20e41e56d046ec, type: 3}
 --- !u!114 &1012528987 stripped
@@ -1345,7 +1350,7 @@ PrefabInstance:
     - target: {fileID: 523066272191010970, guid: dd690209ed315b34d809dea38e60fe0d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 523066272191010970, guid: dd690209ed315b34d809dea38e60fe0d,
         type: 3}
