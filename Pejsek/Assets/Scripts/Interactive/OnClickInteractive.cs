@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class OnClickInteractive : MonoBehaviour
 {
+    [SerializeField] SoundManagement soundManagement = default;
+    [SerializeField] AudioSource hangingLightAudio = default;
+
     Animator animator;
 
     void Start() {
@@ -13,5 +16,9 @@ public class OnClickInteractive : MonoBehaviour
     // Clicking on interactive object, play its animation
     void OnMouseDown() {
         animator.SetTrigger("Play");
+    }
+
+    public void PlayHangingLightAudio() {
+        soundManagement.PlayAudioSource(hangingLightAudio);
     }
 }
