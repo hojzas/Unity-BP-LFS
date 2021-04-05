@@ -22,6 +22,7 @@ public class Task4WindowView : MonoBehaviour
     [SerializeField] GameObject tapHint = default;
     [SerializeField] Button towerButton = default;
     [SerializeField] AudioSource tapTowerSound = default;
+    [SerializeField] AudioSource landscapeAudio = default;
 
     [Header("Operator's speech")]
     string question = "Výborně, ale musíme to vědět přesně," + System.Environment.NewLine + "je vidět nějaký výrazný bod?";
@@ -51,8 +52,6 @@ public class Task4WindowView : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        // TODO taskText null, length check in manager
-
         StartCoroutine(taskManager.WriteText(speechBubble, question));
 
         yield return new WaitForSeconds(1);
@@ -63,10 +62,12 @@ public class Task4WindowView : MonoBehaviour
     
     // Display window view and swipe hint
     internal IEnumerator WindowView() {
+        taskManager.onClickInteractive.SetInteractiveObjectClickable(false);
         yield return new WaitForSeconds(1);
         windowView.SetActive(true);
 
         yield return new WaitForSeconds(1);
+        taskManager.soundManagement.PlayAudioSource(landscapeAudio);
         swipeHint.SetActive(true);
     }
 
@@ -91,6 +92,7 @@ public class Task4WindowView : MonoBehaviour
 
     IEnumerator HideWindow() {
         yield return new WaitForSeconds(4);
+        landscapeAudio.Stop();
         windowView.GetComponent<Animator>().Play("Window_end");      
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class VideoManager3Crash : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
     
     [SerializeField] Animator explosionAnimator = default;
     [SerializeField] GameObject BlackImage = default;
@@ -70,17 +71,14 @@ public class VideoManager3Crash : MonoBehaviour
     IEnumerator TrainCrash() {
         BlackImage.SetActive(true);
 
+        // Preload next scene
+        StartCoroutine(sceneController.LoadAsyncNextScene());
         yield return new WaitForSeconds(4);
 
         StartCoroutine(soundManager.VolumeDown(0.0025f));
         
         yield return new WaitForSeconds(1);
 
-        NextScene();
-    }
-
-    // Load next introduction scene
-    void NextScene() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 }

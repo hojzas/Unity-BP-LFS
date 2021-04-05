@@ -17,8 +17,9 @@ public class Task6TrainSearch : MonoBehaviour
     [SerializeField] GameObject speechBubbleSmall = default;
     [SerializeField] GameObject speechBubbleBig = default;
 
-    [Header("Passenger counter GUI")]
+    [Header("Passenger counter")]
     [SerializeField] RawImage passengerCounterGUI = default;
+    [SerializeField] Animator passengerCounterAnimator = default;
 
     [Header("Gameobject of all the passengers")]
     [SerializeField] GameObject passengers = default;
@@ -70,9 +71,10 @@ public class Task6TrainSearch : MonoBehaviour
     }
 
     IEnumerator StartTask() {
-        // Reset counter, bubble text
+        // Reset counter, bubble text, enable interactive objects
         totalPassengerNumber = passengers.transform.childCount;
         totalPassengerFound = 0;
+        taskManager.onClickInteractive.SetInteractiveObjectClickable(true);
         yield return new WaitForSeconds(4);
         taskManager.ResetBubbleText(speechBubbleSmallText);
         yield return new WaitForSeconds(1);
@@ -122,9 +124,12 @@ public class Task6TrainSearch : MonoBehaviour
     }
 
     // Passenger counter
-    internal void PassengerTap() {
+    internal IEnumerator PassengerTap() {
         
+        // Hide hint, play counter plus animation
         tapHint.SetActive(false);
+        passengerCounterAnimator.SetTrigger("PlusOne");
+        yield return new WaitForSeconds(0.3f);
 
         // Incrementation
         totalPassengerFound++;

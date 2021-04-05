@@ -36,8 +36,6 @@ public class Task3Location : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        // TODO taskText null, length check in manager
-
         StartCoroutine(taskManager.WriteText(speechBubbleText, question));
         
         yield return new WaitForSeconds(1);
@@ -45,6 +43,7 @@ public class Task3Location : MonoBehaviour
         darkBackground.SetActive(true);
         answers.SetActive(true);
         enableButtons(false);
+        taskManager.onClickInteractive.SetInteractiveObjectClickable(false);
 
         yield return new WaitForSeconds(2);
 
@@ -75,6 +74,7 @@ public class Task3Location : MonoBehaviour
         darkBackground.SetActive(false);
 
         // Next task
+        taskManager.onClickInteractive.SetInteractiveObjectClickable(true);
         taskManager.task4WindowView.StartTask4WindowView();
     }
 

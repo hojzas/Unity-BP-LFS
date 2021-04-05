@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class OnClickInteractive : MonoBehaviour
 {
@@ -9,13 +10,21 @@ public class OnClickInteractive : MonoBehaviour
 
     Animator animator;
 
+    bool interactiveObjectClickable = true;
+
+    internal void SetInteractiveObjectClickable(bool state) {
+        interactiveObjectClickable = state;
+    }
+
     void Start() {
         animator = gameObject.GetComponent<Animator>();
     }
 
     // Clicking on interactive object, play its animation
     void OnMouseDown() {
-        animator.SetTrigger("Play");
+        if (interactiveObjectClickable) {
+            animator.SetTrigger("Play");
+        }
     }
 
     public void PlayHangingLightAudio() {

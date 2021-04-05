@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] SceneController sceneController = default;
+
     [SerializeField] Animator blackTransition = default;
     [SerializeField] Animator aboutPanelAnimator = default;
     [SerializeField] AudioSource backgroundMusic = default;
@@ -21,6 +23,18 @@ public class MainMenu : MonoBehaviour
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
+
+    void Start() {
+        StartCoroutine(PreloadNextScene());
+    }
+
+    IEnumerator PreloadNextScene() {
+        // Preload after 1 sec (duration of black transition)
+        yield return new WaitForSeconds(1);
+
+        // Use a coroutine to load next Scene in the background
+        StartCoroutine(sceneController.LoadAsyncNextScene());
+    }
 
     public void StartGame() {
         StartCoroutine(BackgroundMusicVolumeDown());
@@ -45,7 +59,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 
     // Display about game panel

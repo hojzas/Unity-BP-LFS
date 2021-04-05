@@ -15,6 +15,7 @@ public class VideoManager4Hospital : MonoBehaviour
     [SerializeField] Animator blackTransitionAnimator = default;
 
     void BirdSing() {
+        soundManager.SetVolumeValue(0.3f);
         soundManager.PlayAudio("birdSing");
     }
 

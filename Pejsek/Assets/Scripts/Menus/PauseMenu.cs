@@ -206,10 +206,4 @@ public class PauseMenu : MonoBehaviour
             soundManagement.UnMuteSounds(sourcesAndVolumes, backgroundMusic);
         }
     }
-
-
-                                                                    public void SkipToDelete() {
-                                                                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                                                                    }
-
 }

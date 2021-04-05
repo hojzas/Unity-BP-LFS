@@ -180,56 +180,12 @@ PolygonCollider2D:
     - - {x: -6.182581, y: 4.2212834}
       - {x: -6.1834207, y: 1.999118}
       - {x: -6.7888293, y: 0.6637547}
-      - {x: -6.4006186, y: -0.5853665}
-      - {x: -3.743055, y: -0.7598469}
+      - {x: -6.6402545, y: -0.6988785}
+      - {x: -3.5286443, y: -1.1508324}
       - {x: -2.3402882, y: -1.6185273}
       - {x: 3.4214592, y: -1.5172043}
       - {x: 12.192193, y: -4.8014436}
       - {x: 12.094871, y: 2.7105792}
---- !u!1 &69305443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 69305444}
-  - component: {fileID: 69305445}
-  m_Layer: 0
-  m_Name: SceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &69305444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69305443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3953658, y: -0.7652857, z: -4.217061}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &69305445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69305443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 140456863}
 --- !u!1001 &106152219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5380,6 +5336,7 @@ MonoBehaviour:
   task6TrainSearch: {fileID: 296233573}
   moveLandscape: {fileID: 0}
   soundManagement: {fileID: 1089980560}
+  onClickInteractive: {fileID: 0}
   speed: 0.05
 --- !u!114 &296233573
 MonoBehaviour:
@@ -5400,6 +5357,7 @@ MonoBehaviour:
   speechBubbleSmall: {fileID: 1702101833}
   speechBubbleBig: {fileID: 1099851165}
   passengerCounterGUI: {fileID: 986442179}
+  passengerCounterAnimator: {fileID: 986442180}
   passengers: {fileID: 1577380420}
   tapHint: {fileID: 1646272297}
   doorIndicator: {fileID: 1053574166}
@@ -5861,7 +5819,7 @@ PolygonCollider2D:
     - - {x: 8.537612, y: 8.177067}
       - {x: 0.24839073, y: 8.428556}
       - {x: -3.1529346, y: 3.0612946}
-      - {x: -5.7475076, y: -6.703529}
+      - {x: -4.553538, y: -6.512494}
       - {x: 6.497159, y: -7.718006}
 --- !u!1001 &826263831
 PrefabInstance:
@@ -9141,6 +9099,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &986442180 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2307364549549800702, guid: 82c10c17985109149803780768ca4fb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 986442177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1016637683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7211450370989942460, guid: d79b14b289cdf8f4886a49d7d031d50b,
@@ -19776,3 +19740,77 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1089980559}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1189796169307989560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1189796169372967515, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3953658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7652857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 140456863}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}

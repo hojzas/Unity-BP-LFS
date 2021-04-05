@@ -19,6 +19,7 @@ public class Task5AppZachranka : MonoBehaviour
     [SerializeField] GameObject mobileAppCalling = default;
     [SerializeField] GameObject holdHint = default;
     [SerializeField] AudioSource appAudio = default;
+    [SerializeField] AudioSource tapIconAudio = default;
     [SerializeField] Image loadingCircle = default;
     [SerializeField] float callDuration = 3f;
 
@@ -95,6 +96,7 @@ public class Task5AppZachranka : MonoBehaviour
     // 1st part
     // App icon on click
     public void RunApp() {
+        taskManager.soundManagement.PlayAudioSource(tapIconAudio);
         holdHint.SetActive(false);
         
         mobileHome.SetActive(false);

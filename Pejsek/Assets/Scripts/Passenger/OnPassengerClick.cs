@@ -38,7 +38,7 @@ public class OnPassengerClick : MonoBehaviour
                 animatorPlusEffect.SetTrigger("Found");
                 taskManager.soundManagement.PlayAudioSource(audioSource);
                 
-                taskManager.task6TrainSearch.PassengerTap();
+                StartCoroutine(taskManager.task6TrainSearch.PassengerTap());
                 found = true;
             }
         }

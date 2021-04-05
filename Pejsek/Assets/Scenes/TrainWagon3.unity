@@ -4497,6 +4497,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486646394}
     m_Modifications:
+    - target: {fileID: 2307364548687861258, guid: 82c10c17985109149803780768ca4fb6,
+        type: 3}
+      propertyPath: m_text
+      value: '?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307364548687861258, guid: 82c10c17985109149803780768ca4fb6,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2307364549549800696, guid: 82c10c17985109149803780768ca4fb6,
         type: 3}
       propertyPath: m_Name
@@ -4627,6 +4637,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1082261171 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2307364549549800702, guid: 82c10c17985109149803780768ca4fb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1082261168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1082536620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,6 +5195,7 @@ MonoBehaviour:
   speechBubbleSmall: {fileID: 1489068466}
   speechBubbleBig: {fileID: 977757221}
   passengerCounterGUI: {fileID: 1082261170}
+  passengerCounterAnimator: {fileID: 1082261171}
   passengers: {fileID: 1663239251}
   tapHint: {fileID: 671035825}
   doorIndicator: {fileID: 0}
@@ -5209,6 +5226,7 @@ MonoBehaviour:
   task6TrainSearch: {fileID: 1486646395}
   moveLandscape: {fileID: 0}
   soundManagement: {fileID: 430561803}
+  onClickInteractive: {fileID: 0}
   speed: 0.05
 --- !u!114 &1486646397
 MonoBehaviour:
