@@ -18,13 +18,13 @@ public class PlayerCollide : MonoBehaviour {
 
         // Collides with door -> goes to next scene (wagon)
         if (doorIndicator != null && collider2D == doorIndicator.GetComponent<Collider2D>()) {
-            playerController.goToNextWagon = true;
-            playerController.walkEnable = false;
+            playerController.SetGoToNextWagon();
+            playerController.DisableWalk();
             doorIndicator.SetActive(false);
 
         // Enter window view
         } else if (windowIndicator != null && collider2D == windowIndicator.GetComponent<Collider2D>()) {
-            playerController.walkEnable = false;
+            playerController.DisableWalk();
             windowIndicator.SetActive(false);
 
             // Run window view task via taskManager

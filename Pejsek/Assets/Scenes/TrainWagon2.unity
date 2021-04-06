@@ -5153,7 +5153,7 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 1016637683}
   muteSoundsButton: {fileID: 1941428080}
   unMuteSoundsButton: {fileID: 938547017}
-  backgroundMusic: {fileID: 2122845681}
+  backgroundMusic: {fileID: 0}
   openTrigger: Open
   closeTrigger: Close
 --- !u!114 &140456864
@@ -5336,7 +5336,7 @@ MonoBehaviour:
   task6TrainSearch: {fileID: 296233573}
   moveLandscape: {fileID: 0}
   soundManagement: {fileID: 1089980560}
-  onClickInteractive: {fileID: 0}
+  interactiveObject: {fileID: 0}
   speed: 0.05
 --- !u!114 &296233573
 MonoBehaviour:
@@ -9389,15 +9389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
-        type: 3}
-      propertyPath: backgroundMusic
-      value: 
-      objectReference: {fileID: 2122845681}
     - target: {fileID: 808281745736830470, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: m_Name
-      value: BackgroundMusic
+      value: GameSoundManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20166309604bf6f4289d006a77e0ee00, type: 3}
@@ -19734,12 +19729,6 @@ PolygonCollider2D:
       - {x: 4.321307, y: 4.6374955}
       - {x: -15.155204, y: 1.5690806}
       - {x: -15.051357, y: -5.1648993}
---- !u!82 &2122845681 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 1089980559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1189796169307989560
 PrefabInstance:
   m_ObjectHideFlags: 0

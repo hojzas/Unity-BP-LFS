@@ -22,9 +22,9 @@ public class OnPassengerClick : MonoBehaviour
     // On passenger tap
     void OnMouseDown() {
 
-        if (taskManager.task6TrainSearch.clickingEnable && !pauseMenu.paused) {
+        if (taskManager.task6TrainSearch.IsClickingEnable() && !pauseMenu.IsGamePaused()) {
 
-            if (!found) {
+            if (!PassengerFound()) {
                 // Disable gameObject highlight after clicking on it
                 animator.SetTrigger("Found");
                 
@@ -39,9 +39,18 @@ public class OnPassengerClick : MonoBehaviour
                 taskManager.soundManagement.PlayAudioSource(audioSource);
                 
                 StartCoroutine(taskManager.task6TrainSearch.PassengerTap());
-                found = true;
+                PassengerWasFound();
             }
         }
+    }
 
+    // Setter passanger found
+    void PassengerWasFound() {
+        found = true;
+    }
+
+    // Getter passanger found
+    bool PassengerFound() {
+        return found;
     }
 }

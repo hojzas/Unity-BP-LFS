@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    // Setter
     internal void LoadNextScene() {
         loadScene = true;
     }

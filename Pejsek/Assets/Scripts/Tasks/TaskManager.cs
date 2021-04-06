@@ -16,7 +16,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] internal MoveLandscape moveLandscape = default;
 
     [SerializeField] internal SoundManagement soundManagement = default;
-    [SerializeField] internal OnClickInteractive onClickInteractive = default;
+    [SerializeField] internal InteractiveObject interactiveObject = default;
 
 
 

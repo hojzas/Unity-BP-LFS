@@ -43,7 +43,7 @@ public class Task6TrainSearch : MonoBehaviour
 
     // Static to pass total number to other scenes
     static int totalPassengerFound, totalPassengerNumber = 0;
-    internal bool clickingEnable = false;
+    bool clickingEnable = false;
     TextMeshProUGUI speechBubbleSmallText, speechBubbleBigText, passengerCounterText;
     Animator speechBubbleSmallAnimator, speechBubbleBigAnimator;
 
@@ -74,7 +74,7 @@ public class Task6TrainSearch : MonoBehaviour
         // Reset counter, bubble text, enable interactive objects
         totalPassengerNumber = passengers.transform.childCount;
         totalPassengerFound = 0;
-        taskManager.onClickInteractive.SetInteractiveObjectClickable(true);
+        taskManager.interactiveObject.SetInteractiveObjectClickable(true);
         yield return new WaitForSeconds(4);
         taskManager.ResetBubbleText(speechBubbleSmallText);
         yield return new WaitForSeconds(1);
@@ -86,11 +86,13 @@ public class Task6TrainSearch : MonoBehaviour
         // Display passenger counter, highlight them, show tap hint
         passengerCounterGUI.gameObject.SetActive(true);
         HighlightPassengers();
-        clickingEnable = true;
-        playerController.walkEnable = true;
+        EnableClicking();
+        playerController.EnableWalk();
 
         yield return new WaitForSeconds(2);
-        tapHint.SetActive(true);
+        if (totalPassengerFound <= totalPassengerNumber) {
+            tapHint.SetActive(true);
+        }
     }
 
     void ContinueTask() {
@@ -105,7 +107,7 @@ public class Task6TrainSearch : MonoBehaviour
         passengerCounterGUI.gameObject.SetActive(true);
         passengerCounterText.text = totalPassengerFound.ToString();
         HighlightPassengers();
-        clickingEnable = true;
+        EnableClicking();
     }
 
     // Highlight all the passengers
@@ -139,17 +141,15 @@ public class Task6TrainSearch : MonoBehaviour
         if (totalPassengerFound == totalPassengerNumber) {
             if (isLastWagonScene) {
                 // Found them all
-                StartCoroutine(WriteFinalSpeech());
-
-                // TODO prijezd zachranaru
-
+                
+                StartCoroutine(WriteFinalSpeechAndLoadNextScene());
             } else {
                 doorIndicator.SetActive(true);
             }
         }
     }
 
-    IEnumerator WriteFinalSpeech() {
+    IEnumerator WriteFinalSpeechAndLoadNextScene() {
         speechBubbleSmallAnimator.SetTrigger(closeTrigger);
         yield return new WaitForSeconds(1);
         speechBubbleBigAnimator.SetTrigger(openTrigger);
@@ -159,10 +159,27 @@ public class Task6TrainSearch : MonoBehaviour
         yield return new WaitForSeconds(10);
         blackTransition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
+
+        taskManager.soundManagement.StopBackgroundMusic();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     internal bool isFirstTask() {
         return isFirstWagonScene;
+    }
+
+    // Setter clicking enable
+    internal void EnableClicking() {
+        clickingEnable = true;
+    }
+
+    // Setter clicking disable
+    internal void DisableeClicking() {
+        clickingEnable = false;
+    }
+
+    internal bool IsClickingEnable() {
+        return clickingEnable;
     }
 }

@@ -15,7 +15,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] internal GameObject player = default;
 
-    internal bool goToNextWagon = false;
+    bool goToNextWagon = false;
 
-    internal bool walkEnable = true;
+    bool walkEnable = true;
+
+    // Setter go to next wagon
+    internal void SetGoToNextWagon() {
+        goToNextWagon = true;
+    }
+
+    // Getter goToNextWagon
+    internal bool GoToNextWagon() {
+        return goToNextWagon;
+    }
+
+
+    // Setter walk enable
+    internal void EnableWalk() {
+        walkEnable = true;
+    }
+
+    // Setter walk disable
+    internal void DisableWalk() {
+        walkEnable = false;
+    }
+
+    // Getter walkEnable
+    internal bool IsWalkEnable() {
+        return walkEnable;
+    }
+
+
 }

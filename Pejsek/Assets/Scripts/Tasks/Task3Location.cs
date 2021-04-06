@@ -43,7 +43,7 @@ public class Task3Location : MonoBehaviour
         darkBackground.SetActive(true);
         answers.SetActive(true);
         enableButtons(false);
-        taskManager.onClickInteractive.SetInteractiveObjectClickable(false);
+        taskManager.interactiveObject.SetInteractiveObjectClickable(false);
 
         yield return new WaitForSeconds(2);
 
@@ -74,7 +74,7 @@ public class Task3Location : MonoBehaviour
         darkBackground.SetActive(false);
 
         // Next task
-        taskManager.onClickInteractive.SetInteractiveObjectClickable(true);
+        taskManager.interactiveObject.SetInteractiveObjectClickable(true);
         taskManager.task4WindowView.StartTask4WindowView();
     }
 

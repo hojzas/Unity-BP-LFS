@@ -23,7 +23,7 @@ public class PlayerScale : MonoBehaviour
     void FixedUpdate()
     {
         // Scale object based on distance, (y axis) + divergence so object is not so small in the back
-        if (playerController.playerMovement.isMoving) {
+        if (playerController.playerMovement.IsMoving()) {
             scale = -transform.position.y * scaleValue + (transform.position.y + 1 / scaleValue) * scaleDivergence;
 
             transform.localScale = new Vector2(scale, scale);

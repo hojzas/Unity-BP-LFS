@@ -37,6 +37,21 @@ public class MobileButtonsControl : MonoBehaviour
         speechBubbleText = speechBubble.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
     }
 
+    // Setter enable buttons
+    void EnableButtons() {
+        buttonsEnable = true;
+    }
+
+    // Setter disable buttons
+    void DisableButtons() {
+        buttonsEnable = false;
+    }
+
+    // Getter
+    bool ButtonsEnable() {
+        return buttonsEnable;
+    }
+
     internal void DisplaySpeechBubble() {
         StartCoroutine(DisplaySpeechBubbleDelay());
     }
@@ -49,13 +64,13 @@ public class MobileButtonsControl : MonoBehaviour
         speechBubbleAnimator.SetTrigger("Open");
 
         // Write text
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         StartCoroutine(taskManager.WriteText(speechBubbleText, doggyCall155Text));
     }
 
     // Display clicked button number
     public void DisplayNumber(string number) {
-        if (mobileText.text.Length < 9 && buttonsEnable) {
+        if (mobileText.text.Length < 9 && ButtonsEnable()) {
             soundManagement.PlayAudioSource(audioButton);
             mobileText.text += number;
         }
@@ -63,7 +78,7 @@ public class MobileButtonsControl : MonoBehaviour
 
     // Delete last number
     public void Backspace() {
-        if(mobileText.text.Length > 0 && buttonsEnable) {
+        if(mobileText.text.Length > 0 && ButtonsEnable()) {
             soundManagement.PlayAudioSource(audioButton);
             mobileText.text = mobileText.text.Remove(mobileText.text.Length - 1, 1);
         }
@@ -79,7 +94,7 @@ public class MobileButtonsControl : MonoBehaviour
             // Acceptable numbers are 155 and 112
             if(mobileText.text == "155" || mobileText.text == "112") {
                 // Correct, call
-                EnableButtons(false);
+                DisableButtons();
                 mobileAnimator.Play("Phone_call");
 
                 soundManagement.PlayAudioSource(audioCall);
@@ -131,16 +146,11 @@ public class MobileButtonsControl : MonoBehaviour
     // Wrong number feedback
     IEnumerator WrongNumber() {
         soundManagement.PlayAudioSource(audioWrongNumber);
-
-        EnableButtons(false);
+        DisableButtons();
 
         MobileTextAnimator.SetTrigger("Flash");
         yield return new WaitForSeconds(1);
         mobileText.text = "";
-        EnableButtons(true);
-    }
-
-    void EnableButtons(bool state) {
-        buttonsEnable = state;
+        EnableButtons();
     }
 }

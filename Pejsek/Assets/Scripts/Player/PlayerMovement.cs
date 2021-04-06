@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] internal GameObject target = default;
 
-    internal bool isMoving = false;
+    bool isMoving = false;
     bool goUnderTheWindow, goToTheDoor = false;
     Touch touch;
     Vector3 touchPosition, destination;
@@ -40,14 +40,29 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); 
     }
 
+    // Getter isMoving
+    internal bool IsMoving() {
+        return isMoving;
+    }
+
+    // Setter isMoving
+    internal void StartMoving() {
+        isMoving = true;
+    }
+
+    // Setter isMoving
+    internal void StopMoving() {
+        isMoving = false;
+    }
+
     // Update is called once per frame
     void FixedUpdate() {
-        if(isMoving) {
+        if(IsMoving()) {
             // Get current player position
             currentPosition = (touchPosition - transform.position).magnitude;
         }
 
-        if(Input.touchCount > 0 && playerController.walkEnable) {
+        if(Input.touchCount > 0 && playerController.IsWalkEnable()) {
 
             // New touch detected
             touch = Input.GetTouch(0);
@@ -69,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
                     previousPosition = currentPosition = 0;
                     touchPosition.z = 0;
                     animator.Play(animationRun.name);
-                    isMoving = true;
+                    StartMoving();
 
                     destination = (touchPosition - transform.position).normalized;
 
@@ -100,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Same as above
             previousPosition = currentPosition = 0;
-            isMoving = true;
+            StartMoving();
             animator.Play(animationRun.name);
 
             // Check player sprite flip
@@ -119,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         // Destination is reached
         if(currentPosition > previousPosition) {
 
-            if (playerController.goToNextWagon) {
+            if (playerController.GoToNextWagon()) {
                 Stop();
                 animator.Play(playerController.playerCollide.animationClipFade.name);
             } else {
@@ -127,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(isMoving) {
+        if(IsMoving()) {
             previousPosition = (touchPosition - transform.position).magnitude;
         }
     }
@@ -145,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
     // Player stop and play idle animation
     internal void StopAndIdle() {
         HideTarget();
-        isMoving = false;
+        StopMoving();
         rigidb2D.velocity = Vector2.zero;
         animator.Play(animationIdle.name);
     }
@@ -153,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
     // Player stop
     internal void Stop() {
         HideTarget();
-        isMoving = false;
+        StopMoving();
         rigidb2D.velocity = Vector2.zero;
     }
 

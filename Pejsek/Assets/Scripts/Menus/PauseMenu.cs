@@ -26,15 +26,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject muteSoundsButton = default;
     [SerializeField] GameObject unMuteSoundsButton = default;
 
-     [Header("Background music audio source")]
-    [SerializeField] AudioSource backgroundMusic = default;
-
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
 
     Animator pauseButtonAnimator;
-    internal bool paused = false;
+    bool paused = false;
     bool menuDisabled = false;
 
     Dictionary<AudioSource,float> sourcesAndVolumes;
@@ -46,20 +43,24 @@ public class PauseMenu : MonoBehaviour
         pauseButtonAnimator = pauseButton.gameObject.GetComponent<Animator>();
     }
 
+    void DisableMenu(bool state) {
+        menuDisabled = state;
+    }
+
     // Pause
     public void PauseGame() {
-        menuDisabled = false;
+        DisableMenu(false);
 
         Time.timeScale = 0f;
 
-        PauseAudio(true);
+        soundManagement.PauseAllAudio(true);
 
         GetSoundAndMusicButtons();
 
         // Open pause menu
         pauseMenuAnimator.SetTrigger(openTrigger);
         pauseMenuAnimator.ResetTrigger(closeTrigger);
-        paused = true;
+        SetPause();
 
         // Close pause button
         pauseButtonAnimator.SetTrigger(closeTrigger);
@@ -95,11 +96,11 @@ public class PauseMenu : MonoBehaviour
 
         if (!menuDisabled) {
 
-            menuDisabled = true;
+            DisableMenu(true);
 
             Time.timeScale = 1f;
 
-            PauseAudio(false);
+            soundManagement.PauseAllAudio(false);
 
             pauseMenuAnimator.SetTrigger(closeTrigger);
             pauseMenuAnimator.ResetTrigger(openTrigger);
@@ -115,20 +116,10 @@ public class PauseMenu : MonoBehaviour
     // Unpaused after animation finished
     IEnumerator WaitForAnimation() {
         yield return new WaitForSeconds(1);
-        paused = false;
+        SetResume();
     }
 
-    // Pause/Unpause all audio sources except background music
-    void PauseAudio(bool pause) {
-        AudioSource[] audioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-        foreach(AudioSource audioSource in audioSources) {
-            if (pause) {
-                audioSource.Pause();
-            } else {
-                audioSource.UnPause();
-            }    
-        }
-    }
+    
 
 
     // Main menu
@@ -136,10 +127,10 @@ public class PauseMenu : MonoBehaviour
 
         if (!menuDisabled) {
 
-            menuDisabled = true;
+            DisableMenu(true);
 
             Time.timeScale = 1f;
-            paused = false;
+            SetPause();
 
             StartCoroutine(MainMenuTransition());
         }
@@ -149,6 +140,8 @@ public class PauseMenu : MonoBehaviour
     IEnumerator MainMenuTransition() {
         blackTransition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
+        soundManagement.StopBackgroundMusic();
+
         SceneManager.LoadScene(0);
     }
 
@@ -158,7 +151,7 @@ public class PauseMenu : MonoBehaviour
         
         if (!menuDisabled) {
 
-            menuDisabled = true;
+            DisableMenu(true);
             aboutPanel.GetComponent<Animator>().SetTrigger(openTrigger);
             aboutPanel.GetComponent<Animator>().ResetTrigger(closeTrigger);
         }
@@ -166,44 +159,62 @@ public class PauseMenu : MonoBehaviour
 
     // Close about game
     public void CloseAboutGame() {
-        menuDisabled = false;
+        DisableMenu(false);
         aboutPanel.GetComponent<Animator>().SetTrigger(closeTrigger);
         aboutPanel.GetComponent<Animator>().ResetTrigger(openTrigger);
     }
 
     // Mute/unMute music, switch buttons in pause menu
     public void MuteMusic(bool mute) {
-        if (mute) {
-            soundManagement.MuteMusic(true);
-            muteMusicButton.SetActive(false);
-            unMuteMusicButton.SetActive(true);
+        if (!menuDisabled) {
+            if (mute) {
+                soundManagement.MuteMusic(true);
+                muteMusicButton.SetActive(false);
+                unMuteMusicButton.SetActive(true);
 
-            backgroundMusic.Stop();
-        } else {
-            soundManagement.MuteMusic(false);
-            unMuteMusicButton.SetActive(false);
-            muteMusicButton.SetActive(true);
+                soundManagement.PauseBackgroundMusic();
+            } else {
+                soundManagement.MuteMusic(false);
+                unMuteMusicButton.SetActive(false);
+                muteMusicButton.SetActive(true);
 
-            backgroundMusic.Play();
-            // Immediately pause because game is paused
-            backgroundMusic.Pause();
+                soundManagement.PlayBackgroundMusic();
+                // Immediately pause because game is paused
+                soundManagement.PauseBackgroundMusic();
+            }
         }
     }
 
     // Mute/unMute sounds, switch buttons in pause menu
     public void MuteSound(bool mute) {
-        if (mute) {
-            soundManagement.MuteSound(true);
-            muteSoundsButton.SetActive(false);
-            unMuteSoundsButton.SetActive(true);
-            // Mute all sounds, save their audio source volume
-            sourcesAndVolumes = soundManagement.MuteSounds(backgroundMusic);
+        if (!menuDisabled) {
+            if (mute) { 
+                soundManagement.MuteSound(true);
+                muteSoundsButton.SetActive(false);
+                unMuteSoundsButton.SetActive(true);
+                // Mute all sounds, save their audio source volume
+                sourcesAndVolumes = soundManagement.MuteSounds();
 
-        } else {
-            soundManagement.MuteSound(false);
-            unMuteSoundsButton.SetActive(false);
-            muteSoundsButton.SetActive(true);
-            soundManagement.UnMuteSounds(sourcesAndVolumes, backgroundMusic);
+            } else {
+                soundManagement.MuteSound(false);
+                unMuteSoundsButton.SetActive(false);
+                muteSoundsButton.SetActive(true);
+                soundManagement.UnMuteSounds(sourcesAndVolumes);
+            }
         }
+    }
+
+    // Setter pause
+    internal void SetPause() {
+        paused = true;
+    }
+
+    // Setter resume
+    internal void SetResume() {
+        paused = false;
+    }
+
+    internal bool IsGamePaused() {
+        return paused;
     }
 }

@@ -25,7 +25,7 @@ public class MoveLandscape : MonoBehaviour
 
     float moveTime, transfer;
     internal int currentPosition = 0;
-    internal bool towerClicked = false;
+    bool towerClicked = false;
     bool moving = false, swipeLock = false;
 
     // Update is called once per frame
@@ -102,8 +102,18 @@ public class MoveLandscape : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         // Show only when view is static and tower is visible (pos -2)
-        if (!towerClicked && currentPosition == -2 && !moving) {
+        if (!IsTowerClicked() && currentPosition == -2 && !moving) {
             tapHint.SetActive(true);
         }
+    }
+
+    // Setter towerClicked
+    internal void TowerClicked() {
+        towerClicked = true;
+    }
+
+    // Getter towerClicked
+    internal bool IsTowerClicked() {
+        return towerClicked;
     }
 }

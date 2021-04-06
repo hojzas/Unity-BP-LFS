@@ -45,7 +45,7 @@ public class Task4WindowView : MonoBehaviour
         // Enable walk, hide mobile phone
         doggy.SetActive(false);
         playerController.player.SetActive(true);
-        playerController.walkEnable = true;
+        playerController.EnableWalk();
         playerController.playerPickUpMobile.mobile.SetActive(false);
 
         taskManager.ResetBubbleText(speechBubble);
@@ -62,7 +62,7 @@ public class Task4WindowView : MonoBehaviour
     
     // Display window view and swipe hint
     internal IEnumerator WindowView() {
-        taskManager.onClickInteractive.SetInteractiveObjectClickable(false);
+        taskManager.interactiveObject.SetInteractiveObjectClickable(false);
         yield return new WaitForSeconds(1);
         windowView.SetActive(true);
 
@@ -77,7 +77,7 @@ public class Task4WindowView : MonoBehaviour
         if (taskManager.moveLandscape.currentPosition == -2) {
 
             taskManager.soundManagement.PlayAudioSource(tapTowerSound);
-            moveLandscape.towerClicked = true;
+            moveLandscape.TowerClicked();
             tapHint.SetActive(false);
             towerButton.enabled = false;
             StartCoroutine(taskManager.WriteText(speechBubble, correct));

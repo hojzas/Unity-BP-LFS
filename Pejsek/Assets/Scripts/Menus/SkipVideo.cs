@@ -25,14 +25,14 @@ public class SkipVideo : MonoBehaviour
 
     void Update() {
         // Display control buttons when touch is detect, game is not paused and buttons are not allready shown
-        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && !pauseMenu.paused && !buttonsVisible) {
+        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && !pauseMenu.IsGamePaused() && !AreButtonsVisible()) {
             pauseButtonAnimator.ResetTrigger(closeTrigger);
             skipButtonAnimator.ResetTrigger(closeTrigger);
 
             pauseButtonAnimator.SetTrigger(openTrigger);
             skipButtonAnimator.SetTrigger(openTrigger);
 
-            buttonsVisible = true;
+            ShowButtons();
 
             StartCoroutine(ButtonTimer());
         }
@@ -40,7 +40,7 @@ public class SkipVideo : MonoBehaviour
 
     // Skip video
     public void Skip() {
-        if (!pauseMenu.paused) {
+        if (!pauseMenu.IsGamePaused()) {
             StartCoroutine(soundManager.VolumeDown(0.04f));
             StartCoroutine(SkipTransition());
         }
@@ -56,16 +56,29 @@ public class SkipVideo : MonoBehaviour
     IEnumerator ButtonTimer() {
         yield return new WaitForSeconds(displayDuration);
 
-        if (buttonsVisible) {
+        if (AreButtonsVisible()) {
             pauseButtonAnimator.ResetTrigger(openTrigger);
             skipButtonAnimator.ResetTrigger(openTrigger);
             
             pauseButtonAnimator.SetTrigger(closeTrigger);
             skipButtonAnimator.SetTrigger(closeTrigger);
-            buttonsVisible = false;
+            HideButtons();
 
         }
     }
 
+    // Setter show buttons
+    void ShowButtons() {
+        buttonsVisible = true;
+    }
+
+    // Setter hide buttons
+    void HideButtons() {
+        buttonsVisible = false;
+    }
+
+    bool AreButtonsVisible() {
+        return buttonsVisible;
+    }
     
 }

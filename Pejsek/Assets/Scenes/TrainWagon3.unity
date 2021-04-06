@@ -3658,11 +3658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 430561804}
+      objectReference: {fileID: 0}
     - target: {fileID: 808281745736830470, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: m_Name
-      value: BackgroundMusic
+      value: GameSoundManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20166309604bf6f4289d006a77e0ee00, type: 3}
@@ -3678,12 +3678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9600e775d639e4a47bf152bf278592b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &430561804 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 430561802}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &551206317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4020,7 +4014,7 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 2046185828}
   muteSoundsButton: {fileID: 2046185827}
   unMuteSoundsButton: {fileID: 2046185826}
-  backgroundMusic: {fileID: 430561804}
+  backgroundMusic: {fileID: 0}
   openTrigger: Open
   closeTrigger: Close
 --- !u!114 &699852390
@@ -5226,7 +5220,7 @@ MonoBehaviour:
   task6TrainSearch: {fileID: 1486646395}
   moveLandscape: {fileID: 0}
   soundManagement: {fileID: 430561803}
-  onClickInteractive: {fileID: 0}
+  interactiveObject: {fileID: 0}
   speed: 0.05
 --- !u!114 &1486646397
 MonoBehaviour:

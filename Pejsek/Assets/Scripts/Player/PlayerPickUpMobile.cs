@@ -37,7 +37,7 @@ public class PlayerPickUpMobile : MonoBehaviour {
             // Show detailed mobile screen
             mobileScreen.transform.Find("MobileKeyboard").gameObject.SetActive(true);
             mobileScreen.transform.Find("MobileKeyboard").gameObject.GetComponent<Animator>().Play("MobileScreenZoom");
-            playerController.walkEnable = false;
+            playerController.DisableWalk();
 
             // Display doggy
             doggy.SetActive(true);
