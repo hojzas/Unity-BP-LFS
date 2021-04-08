@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class VideoManager1Station : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
 
     [SerializeField] Animator latecomerAnimator = default;
 
@@ -19,7 +17,7 @@ public class VideoManager1Station : MonoBehaviour
 
     // Load next introduction scene
     void NextScene() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 
 

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class VideoManager3Crash : MonoBehaviour
 {
@@ -79,6 +77,6 @@ public class VideoManager3Crash : MonoBehaviour
         
         yield return new WaitForSeconds(1);
 
-        sceneController.LoadNextScene();
+        sceneController.LoadPreloadedScene();
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System.Collections;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -10,6 +7,7 @@ public class Task6TrainSearch : MonoBehaviour
 {
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] PlayerController playerController = default;
+    [SerializeField] SceneController sceneController = default;
     [SerializeField] Animator blackTransition = default;
 
     [Header("Speech bubble")]
@@ -162,7 +160,7 @@ public class Task6TrainSearch : MonoBehaviour
 
         taskManager.soundManagement.StopBackgroundMusic();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 
     internal bool isFirstTask() {

@@ -580,7 +580,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 22.812334, y: 23.14}
+    oldSize: {x: 22.81, y: 23.14}
     newSize: {x: 9.12, y: 9.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6085,6 +6085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskManager: {fileID: 489594636}
   playerController: {fileID: 2091203429}
+  sceneController: {fileID: 2102734095}
   blackTransition: {fileID: 833306721}
   speakingIcon: {fileID: 504436020}
   speechBubbleSmall: {fileID: 31392071}
@@ -25192,7 +25193,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.42359653, y: 1.0005727}
-    oldSize: {x: 4.37, y: 20.82}
+    oldSize: {x: 4.371387, y: 20.820002}
     newSize: {x: 4.371387, y: 20.820002}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -28019,6 +28020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 666210211}
+  sceneController: {fileID: 2102734095}
   pauseButton: {fileID: 879060192}
   aboutPanel: {fileID: 110884802}
   pauseMenuAnimator: {fileID: 200733132}
@@ -28028,7 +28030,6 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 269344355}
   muteSoundsButton: {fileID: 328749509}
   unMuteSoundsButton: {fileID: 1982334782}
-  backgroundMusic: {fileID: 164391924}
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &2039036612
@@ -28610,6 +28611,18 @@ PrefabInstance:
       objectReference: {fileID: 2021887364}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
+--- !u!114 &2102734095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+    type: 3}
+  m_PrefabInstance: {fileID: 2102734094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2106769640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33076,7 +33089,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 22.812334, y: 23.14}
+    oldSize: {x: 22.81, y: 23.14}
     newSize: {x: 9.12, y: 9.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -33323,6 +33336,11 @@ PrefabInstance:
       propertyPath: blackTransition
       value: 
       objectReference: {fileID: 833306721}
+    - target: {fileID: 3862128895050090256, guid: 13653a51c1fe5eb4f9e5030e8145167a,
+        type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 2102734095}
     - target: {fileID: 3862128895050090258, guid: 13653a51c1fe5eb4f9e5030e8145167a,
         type: 3}
       propertyPath: taskManager

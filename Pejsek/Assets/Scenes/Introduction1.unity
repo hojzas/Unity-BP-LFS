@@ -849,12 +849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9600e775d639e4a47bf152bf278592b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &396557013 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 2075244070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &511294935
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 396557012}
+  sceneController: {fileID: 1161917487}
   pauseButton: {fileID: 1651985475}
   aboutPanel: {fileID: 1615488736}
   pauseMenuAnimator: {fileID: 1751329569}
@@ -982,7 +977,6 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 210474613}
   muteSoundsButton: {fileID: 1661973299}
   unMuteSoundsButton: {fileID: 932345850}
-  backgroundMusic: {fileID: 396557013}
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &518148544
@@ -1558,6 +1552,92 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1161917486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1189796169372967515, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3953658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7652857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 511294940}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
+--- !u!114 &1161917487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+    type: 3}
+  m_PrefabInstance: {fileID: 1161917486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1173982808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2462,7 @@ Transform:
   - {fileID: 1325489580}
   - {fileID: 69714714}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1489497278
 MonoBehaviour:
@@ -2397,6 +2477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1223736699}
+  sceneController: {fileID: 1161917487}
   latecomerAnimator: {fileID: 1694014113}
 --- !u!95 &1489497279
 Animator:
@@ -3657,7 +3738,7 @@ PrefabInstance:
     - target: {fileID: 808281745736830468, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 808281745736830468, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
@@ -3683,7 +3764,7 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 396557013}
+      objectReference: {fileID: 0}
     - target: {fileID: 808281745736830470, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: m_Name
@@ -3973,7 +4054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1098425966657550222
 PrefabInstance:
@@ -4020,7 +4101,7 @@ PrefabInstance:
     - target: {fileID: 1098425965710707443, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1098425965710707443, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
         type: 3}

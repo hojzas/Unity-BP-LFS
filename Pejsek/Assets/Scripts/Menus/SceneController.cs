@@ -17,7 +17,7 @@ public class SceneController : MonoBehaviour
     }
 
     // Setter
-    internal void LoadNextScene() {
+    internal void LoadPreloadedScene() {
         loadScene = true;
     }
 
@@ -42,5 +42,25 @@ public class SceneController : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    // Load next scene
+    internal void LoadNextScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    // Load scene
+    internal void LoadSceneByName(string name) {
+        SceneManager.LoadScene(name);
+    }
+
+    // Load first game scene
+    internal void LoadFirstGameScene() {
+        SceneManager.LoadScene("TrainWagon1");
+    }
+
+    // Load Main menu scene
+    internal void LoadMainMenuScene() {
+        SceneManager.LoadScene(0);
     }
 }

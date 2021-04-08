@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 // *****************************************************************************
 // Pause menu
@@ -11,6 +10,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] SoundManagement soundManagement = default;
+    [SerializeField] SceneController sceneController = default;
+
 
     [Header("Pause menu settings")]
     [SerializeField] Button pauseButton = default;
@@ -142,7 +143,7 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitForSeconds(1);
         soundManagement.StopBackgroundMusic();
 
-        SceneManager.LoadScene(0);
+        sceneController.LoadMainMenuScene();
     }
 
 

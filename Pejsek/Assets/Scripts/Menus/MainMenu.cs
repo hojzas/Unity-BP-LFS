@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // *****************************************************************************
 // Main menu
@@ -59,7 +57,7 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        sceneController.LoadNextScene();
+        sceneController.LoadPreloadedScene();
     }
 
     // Display about game panel

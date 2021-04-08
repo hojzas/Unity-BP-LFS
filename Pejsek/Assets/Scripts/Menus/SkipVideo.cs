@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SkipVideo : MonoBehaviour
 {
     [SerializeField] Animator blackTransition = default;
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
     [SerializeField] PauseMenu pauseMenu = default;
 
     [Header("Buttons")]
@@ -49,7 +48,7 @@ public class SkipVideo : MonoBehaviour
     IEnumerator SkipTransition() {
         blackTransition.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(sceneName);
+        sceneController.LoadSceneByName(sceneName);
     }
 
     // Display buttons timer

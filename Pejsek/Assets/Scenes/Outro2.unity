@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 855182684}
+  sceneController: {fileID: 1279897996}
   pauseButton: {fileID: 1333572586}
   aboutPanel: {fileID: 1266899906}
   pauseMenuAnimator: {fileID: 1057424538}
@@ -757,6 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 269445836}
+  sceneController: {fileID: 1279897996}
   propellerAnimator: {fileID: 2129079745}
   doggyJumping: {fileID: 1146631305}
   doggyGoodJob: {fileID: 1301315851}
@@ -784,7 +786,7 @@ Transform:
   - {fileID: 518721685}
   - {fileID: 1669367582}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734625776
 GameObject:
@@ -2160,6 +2162,92 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1266899904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1279897995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1189796169372967515, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3953658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7652857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 105622502}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
+--- !u!114 &1279897996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+    type: 3}
+  m_PrefabInstance: {fileID: 1279897995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301315851
 GameObject:
   m_ObjectHideFlags: 0

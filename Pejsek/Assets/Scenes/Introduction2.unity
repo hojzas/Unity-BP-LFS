@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1012528987}
+  sceneController: {fileID: 107640052}
   blackTransitionAnimator: {fileID: 1059704018}
 --- !u!95 &45972277
 Animator:
@@ -189,7 +190,7 @@ Transform:
   - {fileID: 1392208082}
   - {fileID: 309778328}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49295875
 GameObject:
@@ -272,6 +273,92 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &107640051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1189796169372967515, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3953658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7652857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 440037941}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
+--- !u!114 &107640052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+    type: 3}
+  m_PrefabInstance: {fileID: 107640051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &169551097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -582,6 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 1869355652}
+  sceneController: {fileID: 107640052}
   pauseButton: {fileID: 169551099}
   aboutPanel: {fileID: 797102442}
   pauseMenuAnimator: {fileID: 783235445}
@@ -591,7 +679,6 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 783235449}
   muteSoundsButton: {fileID: 783235448}
   unMuteSoundsButton: {fileID: 783235447}
-  backgroundMusic: {fileID: 1869355651}
   openTrigger: Open
   closeTrigger: Close
 --- !u!114 &440037942
@@ -1533,7 +1620,7 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 1869355651}
+      objectReference: {fileID: 0}
     - target: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: isVideoScene
@@ -1546,12 +1633,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20166309604bf6f4289d006a77e0ee00, type: 3}
---- !u!82 &1869355651 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 1869355650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1869355652 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,

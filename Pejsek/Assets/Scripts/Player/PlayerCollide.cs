@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerCollide : MonoBehaviour { 
 
     [SerializeField] PlayerController playerController = default;
+    [SerializeField] SceneController sceneController = default;
 
     [SerializeField] GameObject doorIndicator = default;
     [SerializeField] GameObject windowIndicator = default;
@@ -57,6 +56,6 @@ public class PlayerCollide : MonoBehaviour {
 
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 }

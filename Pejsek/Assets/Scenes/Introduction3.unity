@@ -1929,7 +1929,7 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 804600236}
+      objectReference: {fileID: 0}
     - target: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: isVideoScene
@@ -1942,12 +1942,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20166309604bf6f4289d006a77e0ee00, type: 3}
---- !u!82 &804600236 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 804600235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &810353869
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 2113294678}
+  sceneController: {fileID: 990833225}
   pauseButton: {fileID: 1627606949}
   aboutPanel: {fileID: 1044519824}
   pauseMenuAnimator: {fileID: 360949329}
@@ -3463,7 +3458,6 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 360949333}
   muteSoundsButton: {fileID: 360949332}
   unMuteSoundsButton: {fileID: 360949331}
-  backgroundMusic: {fileID: 804600236}
   openTrigger: Open
   closeTrigger: Close
 --- !u!1 &1554242734

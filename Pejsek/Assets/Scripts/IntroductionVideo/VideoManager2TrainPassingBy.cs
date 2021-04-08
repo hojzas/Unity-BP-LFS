@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class VideoManager2TrainPassingBy : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
     [SerializeField] Animator blackTransitionAnimator = default;
 
     // Start is called before the first frame update
@@ -24,6 +23,6 @@ public class VideoManager2TrainPassingBy : MonoBehaviour
     IEnumerator NextScene() {
         blackTransitionAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
     }
 }

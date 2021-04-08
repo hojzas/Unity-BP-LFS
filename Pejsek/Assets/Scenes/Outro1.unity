@@ -121,6 +121,92 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &175284884
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1189796169372967515, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3953658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7652857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.217061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967516, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1649526867}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
+--- !u!114 &175284885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+    type: 3}
+  m_PrefabInstance: {fileID: 175284884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2bb81f9c8b83b42954af9847412aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &179350573
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +569,7 @@ PrefabInstance:
         type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 302829835}
+      objectReference: {fileID: 0}
     - target: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: isVideoScene
@@ -496,12 +582,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20166309604bf6f4289d006a77e0ee00, type: 3}
---- !u!82 &302829835 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 808281745736830471, guid: 20166309604bf6f4289d006a77e0ee00,
-    type: 3}
-  m_PrefabInstance: {fileID: 302829834}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &302829836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
@@ -564,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 2048580812}
+  sceneController: {fileID: 175284885}
   helicopter: {fileID: 1237056174}
   helicopterFlying: {fileID: 214235909}
   propellerAnimator: {fileID: 991565855}
@@ -585,7 +666,7 @@ Transform:
   - {fileID: 1097476548}
   - {fileID: 1242309446}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &445713986
 PrefabInstance:
@@ -1133,6 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManagement: {fileID: 302829836}
+  sceneController: {fileID: 175284885}
   pauseButton: {fileID: 1057372266}
   aboutPanel: {fileID: 688587407}
   pauseMenuAnimator: {fileID: 1868725216}
@@ -1142,7 +1224,6 @@ MonoBehaviour:
   unMuteMusicButton: {fileID: 1868725220}
   muteSoundsButton: {fileID: 1868725219}
   unMuteSoundsButton: {fileID: 1868725218}
-  backgroundMusic: {fileID: 302829835}
   openTrigger: Open
   closeTrigger: Close
 --- !u!114 &1649526868

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class VideoManager4Hospital : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
+
 
     [Header("Helicopter")]
     [SerializeField] GameObject helicopter = default;
@@ -35,6 +35,7 @@ public class VideoManager4Hospital : MonoBehaviour
     IEnumerator NextScene() {
         blackTransitionAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneController.LoadNextScene();
+
     }
 }

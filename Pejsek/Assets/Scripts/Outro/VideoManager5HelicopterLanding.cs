@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class VideoManager5HelicopterLanding : MonoBehaviour
 {
     [SerializeField] SoundManager soundManager = default;
+    [SerializeField] SceneController sceneController = default;
+
 
     [SerializeField] Animator propellerAnimator = default;
     [SerializeField] GameObject doggyJumping = default;
@@ -78,6 +77,6 @@ public class VideoManager5HelicopterLanding : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         // Load main menu
-        SceneManager.LoadScene(0);
+        sceneController.LoadMainMenuScene();
     }
 }
