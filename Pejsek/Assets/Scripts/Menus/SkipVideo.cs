@@ -41,14 +41,8 @@ public class SkipVideo : MonoBehaviour
     public void Skip() {
         if (!pauseMenu.IsGamePaused()) {
             StartCoroutine(soundManager.VolumeDown(0.04f));
-            StartCoroutine(SkipTransition());
+            StartCoroutine(sceneController.LoadSceneByName(sceneName));
         }
-    }
-
-    IEnumerator SkipTransition() {
-        blackTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
-        sceneController.LoadSceneByName(sceneName);
     }
 
     // Display buttons timer

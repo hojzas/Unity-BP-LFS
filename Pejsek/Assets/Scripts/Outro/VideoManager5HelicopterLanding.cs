@@ -14,8 +14,6 @@ public class VideoManager5HelicopterLanding : MonoBehaviour
     [SerializeField] GameObject doggy = default;
     [SerializeField] GameObject acknowledgmentPanel = default;
 
-    [SerializeField] Animator blackTransitionAnimator = default;
-
     Animator text1Animator, text2Animator;
     Image logos;
 
@@ -73,10 +71,8 @@ public class VideoManager5HelicopterLanding : MonoBehaviour
         text2Animator.SetTrigger("Show");
 
         yield return new WaitForSeconds(4);
-        blackTransitionAnimator.SetTrigger("Start");
-        yield return new WaitForSeconds(2);
 
         // Load main menu
-        sceneController.LoadMainMenuScene();
+        StartCoroutine(sceneController.LoadMainMenuScene(true));
     }
 }

@@ -1,20 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] PauseMenu pauseMenu = default;
-    bool loadScene = false;
+    [SerializeField] Animator blackTransitionAnimator = default;
 
-    // Pause the game when pressing Android's back button
-    void Update()
-    {
-        if (pauseMenu != null && Application.platform == RuntimePlatform.Android && Input.GetKeyDown(KeyCode.Escape)) {
-            pauseMenu.PauseGame();
-        }
-    }
+    bool loadScene = false;
 
     // Setter
     internal void LoadPreloadedScene() {
@@ -30,10 +22,8 @@ public class SceneController : MonoBehaviour
         asyncLoad.allowSceneActivation = false;
 
         // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            if (asyncLoad.progress >= 0.9f)
-            {
+        while (!asyncLoad.isDone) {
+            if (asyncLoad.progress >= 0.9f) {
                 if (loadScene) {
                     // Activate the Scene
                     asyncLoad.allowSceneActivation = true;
@@ -45,22 +35,28 @@ public class SceneController : MonoBehaviour
     }
 
     // Load next scene
-    internal void LoadNextScene() {
+    // Load with black transition if required
+    internal IEnumerator LoadNextScene(bool loadWithBlackTransition) {
+        if (loadWithBlackTransition) {
+            blackTransitionAnimator.SetTrigger("Start");
+            yield return new WaitForSeconds(1);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Load scene
-    internal void LoadSceneByName(string name) {
+    internal IEnumerator LoadSceneByName(string name) {
+        blackTransitionAnimator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(name);
     }
 
-    // Load first game scene
-    internal void LoadFirstGameScene() {
-        SceneManager.LoadScene("TrainWagon1");
-    }
-
     // Load Main menu scene
-    internal void LoadMainMenuScene() {
+    internal IEnumerator LoadMainMenuScene(bool loadWithBlackTransition) {
+        if (loadWithBlackTransition) {
+            blackTransitionAnimator.SetTrigger("Start");
+            yield return new WaitForSeconds(1);
+        }
         SceneManager.LoadScene(0);
     }
 }

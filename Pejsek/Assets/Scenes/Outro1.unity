@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1649526867}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 294994988}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &175284885 stripped
@@ -648,7 +653,6 @@ MonoBehaviour:
   helicopter: {fileID: 1237056174}
   helicopterFlying: {fileID: 214235909}
   propellerAnimator: {fileID: 991565855}
-  blackTransitionAnimator: {fileID: 294994988}
 --- !u!4 &442933925
 Transform:
   m_ObjectHideFlags: 0
@@ -1219,7 +1223,6 @@ MonoBehaviour:
   aboutPanel: {fileID: 688587407}
   pauseMenuAnimator: {fileID: 1868725216}
   skipButtonAnimator: {fileID: 445713987}
-  blackTransition: {fileID: 294994988}
   muteMusicButton: {fileID: 1868725221}
   unMuteMusicButton: {fileID: 1868725220}
   muteSoundsButton: {fileID: 1868725219}

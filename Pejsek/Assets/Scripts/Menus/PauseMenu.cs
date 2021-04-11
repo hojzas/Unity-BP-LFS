@@ -19,8 +19,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] Animator pauseMenuAnimator = default;
     [SerializeField] Animator skipButtonAnimator = default;
 
-    [SerializeField] Animator blackTransition = default;
-
     [Header("Buttons")]
     [SerializeField] GameObject muteMusicButton = default;
     [SerializeField] GameObject unMuteMusicButton = default;
@@ -42,6 +40,14 @@ public class PauseMenu : MonoBehaviour
         pauseButton.GetComponent<Button>().onClick.AddListener(PauseGame);
 
         pauseButtonAnimator = pauseButton.gameObject.GetComponent<Animator>();
+    }
+
+    // Pause the game when pressing Android's back button
+    void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android && Input.GetKeyDown(KeyCode.Escape)) {
+            PauseGame();
+        }
     }
 
     void DisableMenu(bool state) {
@@ -133,17 +139,11 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
             SetPause();
 
-            StartCoroutine(MainMenuTransition());
+            soundManagement.StopBackgroundMusic();
+
+            // Main menu transition
+            StartCoroutine(sceneController.LoadMainMenuScene(true));
         }
-    }
-
-    // Main menu transition
-    IEnumerator MainMenuTransition() {
-        blackTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
-        soundManagement.StopBackgroundMusic();
-
-        sceneController.LoadMainMenuScene();
     }
 
 

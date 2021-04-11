@@ -21,7 +21,7 @@ public class Task2OperatorCallStart : MonoBehaviour
 
     [Header("Doggy's response")]
     [TextArea]
-    [SerializeField] string doggyResponse = "Dobrý den, vlak kterým jsem jel měl nehodu, je tu spousta zraněných!";
+    [SerializeField] string doggyResponse = "Dobrý den, vlak, kterým jsem jel, měl nehodu, je tu spousta zraněných!";
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";

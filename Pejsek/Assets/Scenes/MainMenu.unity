@@ -502,6 +502,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 1190836698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &245557507 stripped
@@ -1190,7 +1195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pejsek z\xE1chran\xE1\u0159\nNehoda vlaku"
+  m_text: "Pejsek z\xE1chran\xE1\u0159\nnehoda vlaku"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 461149b5d68600540b830dcb3bd39cc9, type: 2}
   m_sharedMaterial: {fileID: 5492523687208535993, guid: 461149b5d68600540b830dcb3bd39cc9,

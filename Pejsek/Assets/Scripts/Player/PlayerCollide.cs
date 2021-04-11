@@ -8,7 +8,6 @@ public class PlayerCollide : MonoBehaviour {
 
     [SerializeField] GameObject doorIndicator = default;
     [SerializeField] GameObject windowIndicator = default;
-    [SerializeField] Animator blackTransition = default;
 
     [SerializeField] internal AnimationClip animationClipFade = default;
 
@@ -48,14 +47,6 @@ public class PlayerCollide : MonoBehaviour {
 
     // Next wagon scene, called after end of player fade animation
     void goToNextWagon() {
-        StartCoroutine(LoadNextWagon());
-    }
-
-    IEnumerator LoadNextWagon() {
-        blackTransition.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1);
-
-        sceneController.LoadNextScene();
+        StartCoroutine(sceneController.LoadNextScene(true));
     }
 }

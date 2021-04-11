@@ -2590,6 +2590,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1520017642}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 122515908}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &990833225 stripped
@@ -3453,7 +3458,6 @@ MonoBehaviour:
   aboutPanel: {fileID: 1044519824}
   pauseMenuAnimator: {fileID: 360949329}
   skipButtonAnimator: {fileID: 1759801454}
-  blackTransition: {fileID: 122515908}
   muteMusicButton: {fileID: 360949334}
   unMuteMusicButton: {fileID: 360949333}
   muteSoundsButton: {fileID: 360949332}

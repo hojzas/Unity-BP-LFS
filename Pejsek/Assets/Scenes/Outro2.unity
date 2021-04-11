@@ -184,7 +184,6 @@ MonoBehaviour:
   aboutPanel: {fileID: 1266899906}
   pauseMenuAnimator: {fileID: 1057424538}
   skipButtonAnimator: {fileID: 928442363}
-  blackTransition: {fileID: 1411355027}
   muteMusicButton: {fileID: 1057424543}
   unMuteMusicButton: {fileID: 1057424542}
   muteSoundsButton: {fileID: 1057424541}
@@ -764,7 +763,6 @@ MonoBehaviour:
   doggyGoodJob: {fileID: 1301315851}
   doggy: {fileID: 838083788}
   acknowledgmentPanel: {fileID: 734625776}
-  blackTransitionAnimator: {fileID: 1411355027}
 --- !u!4 &700254534
 Transform:
   m_ObjectHideFlags: 0
@@ -2234,6 +2232,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 105622502}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 1411355027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &1279897996 stripped

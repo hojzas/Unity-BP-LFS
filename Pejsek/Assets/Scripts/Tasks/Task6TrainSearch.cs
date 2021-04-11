@@ -8,7 +8,6 @@ public class Task6TrainSearch : MonoBehaviour
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] PlayerController playerController = default;
     [SerializeField] SceneController sceneController = default;
-    [SerializeField] Animator blackTransition = default;
 
     [Header("Speech bubble")]
     [SerializeField] GameObject speakingIcon = default;
@@ -155,12 +154,10 @@ public class Task6TrainSearch : MonoBehaviour
         StartCoroutine(taskManager.WriteText(speechBubbleBigText, finalSpeech));
 
         yield return new WaitForSeconds(10);
-        blackTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
 
         taskManager.soundManagement.StopBackgroundMusic();
 
-        sceneController.LoadNextScene();
+        StartCoroutine(sceneController.LoadNextScene(true));
     }
 
     internal bool isFirstTask() {

@@ -17,7 +17,7 @@ public class VideoManager1Station : MonoBehaviour
 
     // Load next introduction scene
     void NextScene() {
-        sceneController.LoadNextScene();
+        StartCoroutine(sceneController.LoadNextScene(false));
     }
 
 

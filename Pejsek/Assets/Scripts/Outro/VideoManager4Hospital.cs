@@ -12,8 +12,6 @@ public class VideoManager4Hospital : MonoBehaviour
     [SerializeField] GameObject helicopterFlying = default;
     [SerializeField] Animator propellerAnimator = default;
 
-    [SerializeField] Animator blackTransitionAnimator = default;
-
     void BirdSing() {
         soundManager.SetVolumeValue(0.3f);
         soundManager.PlayAudio("birdSing");
@@ -32,10 +30,8 @@ public class VideoManager4Hospital : MonoBehaviour
     }
 
     // Load next outro scene
-    IEnumerator NextScene() {
-        blackTransitionAnimator.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
-        sceneController.LoadNextScene();
+    void NextScene() {
+        StartCoroutine(sceneController.LoadNextScene(true));
 
     }
 }

@@ -5149,7 +5149,6 @@ MonoBehaviour:
   aboutPanel: {fileID: 1377193387}
   pauseMenuAnimator: {fileID: 1322604143}
   skipButtonAnimator: {fileID: 0}
-  blackTransition: {fileID: 222753164}
   muteMusicButton: {fileID: 1778783098}
   unMuteMusicButton: {fileID: 1016637683}
   muteSoundsButton: {fileID: 1941428080}
@@ -5353,7 +5352,6 @@ MonoBehaviour:
   taskManager: {fileID: 296233572}
   playerController: {fileID: 531520310}
   sceneController: {fileID: 1189796169307989561}
-  blackTransition: {fileID: 222753164}
   speakingIcon: {fileID: 1419741303}
   speechBubbleSmall: {fileID: 1702101833}
   speechBubbleBig: {fileID: 1099851165}
@@ -19807,6 +19805,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 140456863}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 222753164}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &1189796169307989561 stripped

@@ -5673,7 +5673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.399902, y: -15.400879}
+  m_AnchoredPosition: {x: -15.399414, y: -15.400879}
   m_SizeDelta: {x: 214.78906, y: 177.96814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438498906
@@ -6086,7 +6086,6 @@ MonoBehaviour:
   taskManager: {fileID: 489594636}
   playerController: {fileID: 2091203429}
   sceneController: {fileID: 2102734095}
-  blackTransition: {fileID: 833306721}
   speakingIcon: {fileID: 504436020}
   speechBubbleSmall: {fileID: 31392071}
   speechBubbleBig: {fileID: 31392071}
@@ -6952,7 +6951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -371.1, y: 527}
+  m_AnchoredPosition: {x: -371.0996, y: 527}
   m_SizeDelta: {x: 604.80396, y: 252.22894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &710833001
@@ -27285,7 +27284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -371.1, y: 584}
+  m_AnchoredPosition: {x: -371.0996, y: 584}
   m_SizeDelta: {x: 671.2245, y: 349.37732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1898157161
@@ -28025,7 +28024,6 @@ MonoBehaviour:
   aboutPanel: {fileID: 110884802}
   pauseMenuAnimator: {fileID: 200733132}
   skipButtonAnimator: {fileID: 0}
-  blackTransition: {fileID: 833306721}
   muteMusicButton: {fileID: 1624687385}
   unMuteMusicButton: {fileID: 269344355}
   muteSoundsButton: {fileID: 328749509}
@@ -28609,6 +28607,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 2021887364}
+    - target: {fileID: 1189796169372967517, guid: e773fb7b3e9f0cf46976a7875bc9bc07,
+        type: 3}
+      propertyPath: blackTransitionAnimator
+      value: 
+      objectReference: {fileID: 833306721}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e773fb7b3e9f0cf46976a7875bc9bc07, type: 3}
 --- !u!114 &2102734095 stripped
