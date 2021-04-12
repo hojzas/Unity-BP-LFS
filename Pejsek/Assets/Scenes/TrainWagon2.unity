@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 5932430775868260191, guid: 3a9c56473cc94d249842e74148f90a2c,
         type: 3}
       propertyPath: m_Name
-      value: PassengerLeftSitting
+      value: PassengerRightSitting
       objectReference: {fileID: 0}
     - target: {fileID: 5932430775868260191, guid: 3a9c56473cc94d249842e74148f90a2c,
         type: 3}
@@ -5599,8 +5599,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 14.28051, y: -7.566275}
-      - {x: 10.131705, y: -5.8081007}
-      - {x: 3.370237, y: -5.905668}
+      - {x: 12.370275, y: -6.725669}
+      - {x: 3.370237, y: -6.076072}
       - {x: 2.0139613, y: -4.765769}
       - {x: -0.4482258, y: -4.716093}
       - {x: -0.79800797, y: -2.9036071}
