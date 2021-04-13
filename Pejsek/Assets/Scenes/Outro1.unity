@@ -704,6 +704,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1510374241839069512, guid: a50ff8686e304e547b67becf1df4e01c,
+        type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 175284885}
     - target: {fileID: 1510374241839069517, guid: a50ff8686e304e547b67becf1df4e01c,
         type: 3}
       propertyPath: m_LocalPosition.x

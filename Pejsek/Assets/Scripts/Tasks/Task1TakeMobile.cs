@@ -9,6 +9,7 @@ public class Task1TakeMobile : MonoBehaviour
     [Header("Speech bubble")]
     [SerializeField] GameObject speakingIcon = default;
     [SerializeField] GameObject speechBubbleOneLine = default;
+    [SerializeField] AudioSource speechAudio = default;
 
     [TextArea]
     [SerializeField] string taskText = "Vezmi mobil a zavolej pomoc!";
@@ -16,6 +17,8 @@ public class Task1TakeMobile : MonoBehaviour
     Animator speechBubbleAnimator;
     Animator speakingIconAnimator;
     TextMeshProUGUI speechBubble;
+
+    bool mobileTaken = false;
 
     void Start()
     {
@@ -43,10 +46,15 @@ public class Task1TakeMobile : MonoBehaviour
 
         // Fill up speech bubble with text
         StartCoroutine(taskManager.WriteText(speechBubble, taskText));
+        if (!mobileTaken) {
+            taskManager.soundManagement.PlayAudioSource(speechAudio);
+        }
     }
 
     // Disable 1st task (take mobile) gameobjects
     internal void Disable() {
+        speechAudio.Stop();
+        mobileTaken = true;
         speechBubbleAnimator.ResetTrigger("Open");
         speechBubbleAnimator.SetTrigger("Close");
         speakingIconAnimator.SetTrigger("Close");

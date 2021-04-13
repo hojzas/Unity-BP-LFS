@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Animator blackTransition = default;
     [SerializeField] Animator aboutPanelAnimator = default;
     [SerializeField] AudioSource backgroundMusic = default;
+    [SerializeField] AudioSource introductionSound = default;
 
      [Header("Buttons")]
     [SerializeField] Animator aboutButtonAnimator = default;
@@ -22,16 +23,35 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string openTrigger = "Open";
     [SerializeField] string closeTrigger = "Close";
 
+    static bool playIntroductionSound = true;
+
     void Start() {
         StartCoroutine(PreloadNextScene());
+        StartCoroutine(PlayBackgroundMusic());
+        
     }
 
     IEnumerator PreloadNextScene() {
         // Preload after 1 sec (duration of black transition)
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         // Use a coroutine to load next Scene in the background
         StartCoroutine(sceneController.LoadAsyncNextScene());
+    }
+
+    IEnumerator PlayBackgroundMusic() {
+
+        if (playIntroductionSound) {
+            playIntroductionSound = false;
+            introductionSound.Play();
+            // Show play button after introduction
+            yield return new WaitForSeconds(9.5f);
+            startButtonAnimator.SetTrigger(openTrigger);
+
+            yield return new WaitForSeconds(6);
+        }
+        startButtonAnimator.SetTrigger(openTrigger);
+        backgroundMusic.Play();
     }
 
     public void StartGame() {

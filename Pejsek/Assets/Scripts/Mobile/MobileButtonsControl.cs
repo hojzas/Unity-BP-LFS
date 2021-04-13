@@ -18,6 +18,8 @@ public class MobileButtonsControl : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] AudioSource audioButton = default;
     [SerializeField] AudioSource audioWrongNumber = default;
+    [SerializeField] AudioSource audioDoggyCall155 = default;
+    [SerializeField] AudioSource audioDoggyTryAgain = default;
 
     bool buttonsEnable = true;
 
@@ -62,8 +64,9 @@ public class MobileButtonsControl : MonoBehaviour
         speechBubbleAnimator.SetTrigger("Open");
 
         // Write text
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1);
         StartCoroutine(taskManager.WriteText(speechBubbleText, doggyCall155Text));
+        soundManagement.PlayAudioSource(audioDoggyCall155);
     }
 
     // Display clicked button number
@@ -145,9 +148,10 @@ public class MobileButtonsControl : MonoBehaviour
     IEnumerator WrongNumber() {
         soundManagement.PlayAudioSource(audioWrongNumber);
         DisableButtons();
-
         MobileTextAnimator.SetTrigger("Flash");
+
         yield return new WaitForSeconds(1);
+        soundManagement.PlayAudioSource(audioDoggyTryAgain);
         mobileText.text = "";
         EnableButtons();
     }

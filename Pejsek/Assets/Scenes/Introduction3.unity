@@ -4599,6 +4599,11 @@ PrefabInstance:
       propertyPath: pauseButtonAnimator
       value: 
       objectReference: {fileID: 1627606948}
+    - target: {fileID: 1510374241839069512, guid: a50ff8686e304e547b67becf1df4e01c,
+        type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 990833225}
     - target: {fileID: 1510374241839069517, guid: a50ff8686e304e547b67becf1df4e01c,
         type: 3}
       propertyPath: m_LocalPosition.x
