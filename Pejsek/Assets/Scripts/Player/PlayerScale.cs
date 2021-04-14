@@ -8,7 +8,6 @@ public class PlayerScale : MonoBehaviour
 
     internal float scale;
     float scaleValue;
-    bool normal = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +24,6 @@ public class PlayerScale : MonoBehaviour
             scale = -transform.position.y * scaleValue + (transform.position.y + 1 / scaleValue) * scaleDivergence;
 
             transform.localScale = new Vector2(scale, scale);
-        }
-        
-        // TODO change speed based on scale
-        if (transform.localScale.y < 0.75) {
-            if (normal) {
-                //playerController.playerMovement.SpeedDown();
-                normal = false;
-            }
-        } else if (!normal) {
-            normal = true;
-            //playerController.playerMovement.SpeedUp();
         }
     }
 }

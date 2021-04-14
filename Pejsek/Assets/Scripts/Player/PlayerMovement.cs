@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] PlayerController playerController = default;
     
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveSpeed = 6.5f;
 
     [SerializeField] Collider2D walkArea = default;
     [SerializeField] Transform underWindow = default;
@@ -55,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        if(IsMoving()) {
+        if (IsMoving()) {
             // Get current player position
             currentPosition = (touchPosition - transform.position).magnitude;
         }
 
-        if(Input.touchCount > 0 && playerController.IsWalkEnable()) {
+        if (Input.touchCount > 0 && playerController.IsWalkEnable()) {
 
             // New touch detected
             touch = Input.GetTouch(0);
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             if (walkArea.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position))) {
 
                 // Move only where the first touch has been detected
-                if(touch.phase == TouchPhase.Began) {
+                if (touch.phase == TouchPhase.Began) {
 
                     // Get touch position                        
                     touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
@@ -87,16 +87,12 @@ public class PlayerMovement : MonoBehaviour
                     destination = (touchPosition - transform.position).normalized;
 
                     // Check player sprite flip
-                    if (destination.x < 0) {
-                        spriteRenderer.flipX = true;
-                    } else {
-                        spriteRenderer.flipX = false;
-                    }
+                    CheckAxisXFlip();
 
-                    // Move player, speed changes depending on the distance (scale)
+                    // Move player
                     rigidb2D.velocity = new Vector2(destination.x * moveSpeed, destination.y * moveSpeed);
                 }
-            }            
+            }
         }
 
         // Fixed destination set
@@ -116,12 +112,7 @@ public class PlayerMovement : MonoBehaviour
             StartMoving();
             animator.Play(animationRun.name);
 
-            // Check player sprite flip
-            if (destination.x < 0) {
-                spriteRenderer.flipX = true;
-            } else {
-                spriteRenderer.flipX = false;
-            }
+            CheckAxisXFlip();
 
             rigidb2D.velocity = new Vector2(destination.x * moveSpeed, destination.y * moveSpeed);
 
@@ -130,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Destination is reached
-        if(currentPosition > previousPosition) {
+        if (currentPosition > previousPosition) {
 
             if (playerController.GoToNextWagon()) {
                 Stop();
@@ -140,19 +131,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(IsMoving()) {
+        if (IsMoving()) {
             previousPosition = (touchPosition - transform.position).magnitude;
         }
     }
 
-    // Speed down speed
-    internal void SpeedDown() {
-        rigidb2D.velocity = new Vector2(rigidb2D.velocity.x * 0.5f, rigidb2D.velocity.y * 0.5f);
-    }
-
-    // Speed up speed
-    internal void SpeedUp() {
-        rigidb2D.velocity = new Vector2(rigidb2D.velocity.x * 1.5f, rigidb2D.velocity.y * 1.5f);
+    // Check player sprite flip
+    void CheckAxisXFlip() {
+        if (destination.x < 0) {
+            spriteRenderer.flipX = true;
+        } else {
+            spriteRenderer.flipX = false;
+        }
     }
 
     // Player stop and play idle animation
