@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip helicopterTakeOff = default;
     [SerializeField] AudioClip birdSing = default;
     [SerializeField] AudioClip ambulance = default;
+    [SerializeField] AudioClip doggyOutro = default;
 
 
     // Play specific audio
@@ -76,6 +77,10 @@ public class SoundManager : MonoBehaviour
 
                 case "ambulance":
                     audioSrc.PlayOneShot(ambulance);
+                    break;
+
+                case "doggyOutro":
+                    audioSrc.PlayOneShot(doggyOutro);
                     break;
             }
         }

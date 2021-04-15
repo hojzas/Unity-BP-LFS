@@ -25,8 +25,7 @@ public class Task4WindowView : MonoBehaviour
 
     [Header("Operator's speech")]
     string question = "Výborně, ale musíme to vědět přesně," + System.Environment.NewLine + "je vidět nějaký výrazný bod?";
-    [TextArea]
-    [SerializeField] string correct = "Ano, už asi vím, kde jsi. Pomoc je už na cestě.";
+    string correct = "Ano, už asi vím, kde jsi. Neboj se," + System.Environment.NewLine + "pomoc je už na cestě.";
 
     TextMeshProUGUI speechBubble;
 
@@ -52,6 +51,7 @@ public class Task4WindowView : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         StartCoroutine(taskManager.WriteText(speechBubble, question));
+        taskManager.soundManagement.PlayOperatorAudio("4");
 
         yield return new WaitForSeconds(1);
 
@@ -80,6 +80,8 @@ public class Task4WindowView : MonoBehaviour
             tapHint.SetActive(false);
             towerButton.enabled = false;
             StartCoroutine(taskManager.WriteText(speechBubble, correct));
+            taskManager.soundManagement.PlayOperatorAudio("5");
+
             StartCoroutine(HideWindow());
 
             playerController.playerMovement.PlayerFlipX();
@@ -90,7 +92,7 @@ public class Task4WindowView : MonoBehaviour
     }
 
     IEnumerator HideWindow() {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
         landscapeAudio.Stop();
         windowView.GetComponent<Animator>().Play("Window_end");      
     }

@@ -7,6 +7,20 @@ public class SoundManagement : MonoBehaviour
     [SerializeField] bool isVideoScene = false;
     [SerializeField] bool isFirstGameScene = false;
 
+    [Header("Sounds")]
+    [SerializeField] AudioSource audioSrc = default;
+    [SerializeField] AudioClip operator155 = default;
+    [SerializeField] AudioClip operator112 = default;
+    [SerializeField] AudioClip operator2 = default;
+    [SerializeField] AudioClip operator3 = default;
+    [SerializeField] AudioClip operator3wrong = default;
+    [SerializeField] AudioClip operator4 = default;
+    [SerializeField] AudioClip operator5 = default;
+    [SerializeField] AudioClip operator6 = default;
+    [SerializeField] AudioClip operator7 = default;
+    [SerializeField] AudioClip operator8 = default;
+    [SerializeField] AudioClip operator9 = default;
+
     // Static, so the state of sound and music can be load in any scene
     static bool soundIsMute = false, musicIsMute = false, backgroundMusicIsPlaying = false;
     static GameObject backgroundMusicStatic;
@@ -15,7 +29,7 @@ public class SoundManagement : MonoBehaviour
     static AudioSource backgroundMusicAudio;
 
     void Awake() {
-        if (isFirstGameScene) {
+        if (isFirstGameScene && backgroundMusic != null) {
             backgroundMusicStatic = backgroundMusic;
             backgroundMusicAudio = backgroundMusic.GetComponent<AudioSource>();
 
@@ -144,5 +158,59 @@ public class SoundManagement : MonoBehaviour
     // MusicIsMute setter
     internal void MuteMusic(bool state) {
         musicIsMute = state;
+    }
+
+    // ************************** Operator **************************
+    // Play specific operator audio
+    internal void PlayOperatorAudio(string audioClip) {
+
+        if (!IsSoundMute()) {
+
+            switch (audioClip) {
+                case "1-112":
+                    audioSrc.PlayOneShot(operator112);
+                    break;
+
+                case "1-155":
+                    audioSrc.PlayOneShot(operator155);
+                    break;
+
+                case "2":
+                    audioSrc.PlayOneShot(operator2);
+                    break;
+
+                case "3":
+                    audioSrc.PlayOneShot(operator3);
+                    break;
+
+                case "3-wrong":
+                    audioSrc.PlayOneShot(operator3wrong);
+                    break;
+
+                case "4":
+                    audioSrc.PlayOneShot(operator4);
+                    break;
+
+                case "5":
+                    audioSrc.PlayOneShot(operator5);
+                    break;
+
+                case "6":
+                    audioSrc.PlayOneShot(operator6);
+                    break;
+
+                case "7":
+                    audioSrc.PlayOneShot(operator7);
+                    break;
+
+                case "8":
+                    audioSrc.PlayOneShot(operator8);
+                    break;
+
+                case "9":
+                    audioSrc.PlayOneShot(operator9);
+                    break;
+            }
+        }
     }
 }

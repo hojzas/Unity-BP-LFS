@@ -367,6 +367,11 @@ PrefabInstance:
       propertyPath: soundManagement
       value: 
       objectReference: {fileID: 855182684}
+    - target: {fileID: 1098425965710707445, guid: 7cd9e7f8e3947964ba20e41e56d046ec,
+        type: 3}
+      propertyPath: doggyOutro
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d3da733b36044743a17320733407c2f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd9e7f8e3947964ba20e41e56d046ec, type: 3}
 --- !u!114 &269445836 stripped

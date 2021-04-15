@@ -16,6 +16,7 @@ public class Task2OperatorCallStart : MonoBehaviour
     [SerializeField] string introducePart2 = ", jak vám mohu pomoci?";
     [SerializeField] string introduce155 = "zdravotnická záchranná služba";
     [SerializeField] string introduce112 = "tísňová linka";
+    [SerializeField] AudioSource doggyCorrect = default;
     [TextArea]
     [SerializeField] string afterCorrectAnswer = "Dobře, neboj, společně všem zraněným pasažérům pomůžeme.";
 
@@ -43,6 +44,7 @@ public class Task2OperatorCallStart : MonoBehaviour
     internal IEnumerator StartCall155(bool call155) {
 
         taskManager.ResetBubbleText(speechBubbleText);
+        taskManager.soundManagement.PlayAudioSource(doggyCorrect);
 
         yield return new WaitForSeconds(6);
 
@@ -55,12 +57,15 @@ public class Task2OperatorCallStart : MonoBehaviour
         string introduce = introducePart1;
         if (call155) {
             introduce += introduce155;
+            taskManager.soundManagement.PlayOperatorAudio("1-155");
         } else {
             introduce += introduce112;
+            taskManager.soundManagement.PlayOperatorAudio("1-112");
         }
         introduce += introducePart2;
 
         StartCoroutine(taskManager.WriteText(speechBubbleText, introduce));
+
 
         // Doggy describes the situation
         yield return new WaitForSeconds(4);
@@ -77,6 +82,7 @@ public class Task2OperatorCallStart : MonoBehaviour
 
         // Answer
         StartCoroutine(taskManager.WriteText(speechBubbleText, afterCorrectAnswer));
+        taskManager.soundManagement.PlayOperatorAudio("2");
         yield return new WaitForSeconds(5);
 
         // Next task      

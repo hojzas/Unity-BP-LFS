@@ -74,7 +74,7 @@ public class Task5AppZachranka : MonoBehaviour
     IEnumerator StartTask() {
 
         // Open different speech bubble
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         speechBubbleOneLineAnimator.ResetTrigger(openTrigger);
         speechBubbleOneLineAnimator.SetTrigger(closeTrigger);
         yield return new WaitForSeconds(2);
@@ -83,6 +83,7 @@ public class Task5AppZachranka : MonoBehaviour
 
         // Write task
         StartCoroutine(taskManager.WriteText(speechBubbleText, question));
+        taskManager.soundManagement.PlayOperatorAudio("6");
         yield return new WaitForSeconds(4);
 
         // Show up mobile screen
@@ -130,6 +131,7 @@ public class Task5AppZachranka : MonoBehaviour
         
         yield return new WaitForSeconds(1);
         StartCoroutine(taskManager.WriteText(speechBubbleOneLineText, feedback));
+        taskManager.soundManagement.PlayOperatorAudio("7");
 
         // Next task
         taskManager.task6TrainSearch.StartTask6TrainSearch();

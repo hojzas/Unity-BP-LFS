@@ -3659,6 +3659,11 @@ PrefabInstance:
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 808281745736830469, guid: 20166309604bf6f4289d006a77e0ee00,
+        type: 3}
+      propertyPath: audioSrc
+      value: 
+      objectReference: {fileID: 430561804}
     - target: {fileID: 808281745736830470, guid: 20166309604bf6f4289d006a77e0ee00,
         type: 3}
       propertyPath: m_Name
@@ -3678,6 +3683,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9600e775d639e4a47bf152bf278592b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &430561804 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5708102294640899507, guid: 20166309604bf6f4289d006a77e0ee00,
+    type: 3}
+  m_PrefabInstance: {fileID: 430561802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &446013283
 PrefabInstance:
   m_ObjectHideFlags: 0

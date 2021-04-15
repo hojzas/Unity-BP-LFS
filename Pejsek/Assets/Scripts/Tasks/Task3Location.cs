@@ -36,6 +36,7 @@ public class Task3Location : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         StartCoroutine(taskManager.WriteText(speechBubbleText, question));
+        taskManager.soundManagement.PlayOperatorAudio("3");
         
         yield return new WaitForSeconds(1);
 
@@ -59,6 +60,7 @@ public class Task3Location : MonoBehaviour
 
         // Feedback
         StartCoroutine(taskManager.WriteText(speechBubbleText, wrongAnswer));
+        taskManager.soundManagement.PlayOperatorAudio("3-wrong");
         enableButtons(false);
         yield return new WaitForSeconds(4);
         enableButtons(true);

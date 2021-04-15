@@ -78,6 +78,9 @@ public class Task6TrainSearch : MonoBehaviour
 
         // Write task question
         StartCoroutine(taskManager.WriteText(speechBubbleSmallText, question));
+        if (isFirstWagonScene) {
+            taskManager.soundManagement.PlayOperatorAudio("8");
+        }
         yield return new WaitForSeconds(2);
 
         // Display passenger counter, highlight them, show tap hint
@@ -152,6 +155,7 @@ public class Task6TrainSearch : MonoBehaviour
         speechBubbleBigAnimator.SetTrigger(openTrigger);
         yield return new WaitForSeconds(1);
         StartCoroutine(taskManager.WriteText(speechBubbleBigText, finalSpeech));
+        taskManager.soundManagement.PlayOperatorAudio("9");
 
         yield return new WaitForSeconds(10);
 

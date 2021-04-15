@@ -39,23 +39,25 @@ public class VideoManager5HelicopterLanding : MonoBehaviour
     void DoggyStopJumping() {
         doggyJumping.SetActive(false);
         doggy.SetActive(true);
-        StartCoroutine(soundManager.VolumeDown(0.005f));
     }
 
     void DoggyGoodJob() {
-        StartCoroutine(soundManager.VolumeDown(0.0005f));
         doggy.SetActive(false);
         doggyGoodJob.SetActive(true);
     }
 
     // Endgame, acknowledgment, load main menu
     IEnumerator MainMenu() {
+
         yield return new WaitForSeconds(0.7f);
         
-
         // Acknowledgment
         acknowledgmentPanel.SetActive(true);
         yield return new WaitForSeconds(1);
+
+        soundManager.StopAudio();
+        soundManager.SetVolumeValue(1);
+        soundManager.PlayAudio("doggyOutro");
 
         // Display Logos
         while (logos.fillAmount < 1) {
