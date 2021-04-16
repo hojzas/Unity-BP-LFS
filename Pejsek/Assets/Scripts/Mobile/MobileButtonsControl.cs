@@ -98,6 +98,7 @@ public class MobileButtonsControl : MonoBehaviour
                 DisableButtons();
                 mobileAnimator.Play("Phone_call");
 
+                audioDoggyCall155.Stop();
                 soundManagement.PlayAudioSource(audioCall);
 
                 // Close speech bubble

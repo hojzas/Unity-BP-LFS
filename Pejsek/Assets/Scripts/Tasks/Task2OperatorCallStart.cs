@@ -23,6 +23,7 @@ public class Task2OperatorCallStart : MonoBehaviour
     [Header("Doggy's response")]
     [TextArea]
     [SerializeField] string doggyResponse = "Dobrý den, vlak, kterým jsem jel, měl nehodu, je tu spousta zraněných!";
+    [SerializeField] AudioSource doggyResponseAudio = default;
 
     [Header("Triggers")]
     [SerializeField] string openTrigger = "Open";
@@ -75,6 +76,7 @@ public class Task2OperatorCallStart : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         StartCoroutine(taskManager.WriteText(speechBubbleDoggyText, doggyResponse));
+        taskManager.soundManagement.PlayAudioSource(doggyResponseAudio);
         yield return new WaitForSeconds(6);
         taskManager.ResetBubbleText(speechBubbleDoggyText);
         yield return new WaitForSeconds(0.2f);
