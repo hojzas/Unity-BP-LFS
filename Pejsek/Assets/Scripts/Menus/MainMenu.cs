@@ -11,11 +11,13 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] Animator blackTransition = default;
     [SerializeField] Animator aboutPanelAnimator = default;
+    [SerializeField] Animator listPanelAnimator = default;
     [SerializeField] AudioSource backgroundMusic = default;
     [SerializeField] AudioSource introductionSound = default;
 
      [Header("Buttons")]
     [SerializeField] Animator aboutButtonAnimator = default;
+    [SerializeField] Animator listButtonAnimator = default;
     [SerializeField] Animator quitButtonAnimator = default;
     [SerializeField] Animator startButtonAnimator = default;
 
@@ -50,9 +52,15 @@ public class MainMenu : MonoBehaviour
             startButtonAnimator.SetTrigger(openTrigger);
 
             yield return new WaitForSeconds(6);
+            startButtonAnimator.SetTrigger(openTrigger);
+            backgroundMusic.Play();
+
+        } else {
+            backgroundMusic.Play();
+            startButtonAnimator.SetTrigger(openTrigger);
+            yield return new WaitForSeconds(1f);
+            ListOfInstruction();
         }
-        startButtonAnimator.SetTrigger(openTrigger);
-        backgroundMusic.Play();
     }
 
     public void StartGame() {
@@ -89,6 +97,9 @@ public class MainMenu : MonoBehaviour
         aboutButtonAnimator.SetTrigger(closeTrigger);
         aboutButtonAnimator.ResetTrigger(openTrigger);
 
+        listButtonAnimator.SetTrigger(closeTrigger);
+        listButtonAnimator.ResetTrigger(openTrigger);
+
         quitButtonAnimator.SetTrigger(closeTrigger);
         quitButtonAnimator.ResetTrigger(openTrigger);
     }
@@ -100,6 +111,39 @@ public class MainMenu : MonoBehaviour
 
         aboutButtonAnimator.SetTrigger(openTrigger);
         aboutButtonAnimator.ResetTrigger(closeTrigger);
+
+        listButtonAnimator.SetTrigger(openTrigger);
+        listButtonAnimator.ResetTrigger(closeTrigger);
+
+        quitButtonAnimator.SetTrigger(openTrigger);
+        quitButtonAnimator.ResetTrigger(closeTrigger);
+    }
+
+    // Display list of instruction panel
+    public void ListOfInstruction() {
+        listPanelAnimator.SetTrigger(openTrigger);
+        listPanelAnimator.ResetTrigger(closeTrigger);
+
+        aboutButtonAnimator.SetTrigger(closeTrigger);
+        aboutButtonAnimator.ResetTrigger(openTrigger);
+
+        listButtonAnimator.SetTrigger(closeTrigger);
+        listButtonAnimator.ResetTrigger(openTrigger);
+
+        quitButtonAnimator.SetTrigger(closeTrigger);
+        quitButtonAnimator.ResetTrigger(openTrigger);
+    }
+
+    // Close list of instruction panel
+    public void CloseListOfInstruction() {
+        listPanelAnimator.SetTrigger(closeTrigger);
+        listPanelAnimator.ResetTrigger(openTrigger);
+
+        aboutButtonAnimator.SetTrigger(openTrigger);
+        aboutButtonAnimator.ResetTrigger(closeTrigger);
+
+        listButtonAnimator.SetTrigger(openTrigger);
+        listButtonAnimator.ResetTrigger(closeTrigger);
 
         quitButtonAnimator.SetTrigger(openTrigger);
         quitButtonAnimator.ResetTrigger(closeTrigger);

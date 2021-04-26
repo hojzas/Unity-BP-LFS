@@ -26,7 +26,7 @@ public class TaskManager : MonoBehaviour
     // Begin with 1st task
     void Start()
     {
-        if (task6TrainSearch.isFirstTask()) {
+        if (task6TrainSearch.IsFirstTask()) {
             // Run task 1
             task1TakeMobile.StartTask1TakeMobile();
         } else {

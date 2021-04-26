@@ -57,7 +57,7 @@ public class Task6TrainSearch : MonoBehaviour
 
     internal void StartTask6TrainSearch() {
 
-        if (isFirstTask()) {
+        if (IsFirstTask()) {
             // First wagon -> start
             StartCoroutine(StartTask());
 
@@ -78,9 +78,7 @@ public class Task6TrainSearch : MonoBehaviour
 
         // Write task question
         StartCoroutine(taskManager.WriteText(speechBubbleSmallText, question));
-        if (isFirstWagonScene) {
-            taskManager.soundManagement.PlayOperatorAudio("8");
-        }
+        taskManager.soundManagement.PlayOperatorAudio("8");
         yield return new WaitForSeconds(2);
 
         // Display passenger counter, highlight them, show tap hint
@@ -141,7 +139,6 @@ public class Task6TrainSearch : MonoBehaviour
         if (totalPassengerFound == totalPassengerNumber) {
             if (isLastWagonScene) {
                 // Found them all
-                
                 StartCoroutine(WriteFinalSpeechAndLoadNextScene());
             } else {
                 doorIndicator.SetActive(true);
@@ -164,7 +161,7 @@ public class Task6TrainSearch : MonoBehaviour
         StartCoroutine(sceneController.LoadNextScene(true));
     }
 
-    internal bool isFirstTask() {
+    internal bool IsFirstTask() {
         return isFirstWagonScene;
     }
 
