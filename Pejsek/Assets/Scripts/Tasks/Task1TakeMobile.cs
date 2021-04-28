@@ -42,8 +42,6 @@ public class Task1TakeMobile : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        GameObject speechBubbleText = speechBubbleOneLine.transform.Find("Text").gameObject;
-
         // Fill up speech bubble with text
         StartCoroutine(taskManager.WriteText(speechBubble, taskText));
         if (!mobileTaken) {

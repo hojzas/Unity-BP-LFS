@@ -8,6 +8,7 @@ public class MobileButtonsControl : MonoBehaviour
     [SerializeField] internal TaskManager taskManager = default;
     [SerializeField] TMP_Text mobileText = default;
     [SerializeField] GameObject doggy = default;
+    [SerializeField] GameObject doggyHead = default;
     [SerializeField] Animator MobileTextAnimator = default;
 
     [Header("Speech bubble")]
@@ -100,6 +101,7 @@ public class MobileButtonsControl : MonoBehaviour
 
                 audioDoggyCall155.Stop();
                 soundManagement.PlayAudioSource(audioCall);
+                doggyHead.SetActive(false);
 
                 // Close speech bubble
                 taskManager.ResetBubbleText(speechBubbleText);

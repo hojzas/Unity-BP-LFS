@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
 
         if (playIntroductionSound) {
             playIntroductionSound = false;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             introductionSound.Play();
             // Show play button after introduction
             yield return new WaitForSeconds(9.5f);
