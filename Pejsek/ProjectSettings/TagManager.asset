@@ -54,6 +54,9 @@ TagManager:
   - name: Indicator
     uniqueID: 4223150855
     locked: 0
+  - name: Indicator2
+    uniqueID: 1038479317
+    locked: 0
   - name: Doggy
     uniqueID: 1205408273
     locked: 0

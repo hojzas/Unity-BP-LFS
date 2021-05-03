@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Collider2D walkArea = default;
     [SerializeField] Transform underWindow = default;
     [SerializeField] Transform nearDoor = default;
+    [SerializeField] Transform nearMobile = default;
 
     [Header("Animations")]
     [SerializeField] AnimationClip animationIdle = default;
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] internal GameObject target = default;
 
     bool isMoving = false;
-    bool goUnderTheWindow, goToTheDoor = false;
+    bool goUnderTheWindow, goToTheDoor, goToMobile = false;
     Touch touch;
     Vector3 touchPosition, destination;
 
@@ -97,14 +98,17 @@ public class PlayerMovement : MonoBehaviour
 
         // Fixed destination set
         // When clicking on the arrow, window or door (these objects are not in clickable allowed walk area)
-        if (goUnderTheWindow || goToTheDoor) {
+        if (goUnderTheWindow || goToTheDoor || goToMobile) {
 
             if (goUnderTheWindow) {
                 touchPosition = underWindow.position;
                 destination = (underWindow.position - transform.position).normalized;
-            } else {
+            } else if (goToTheDoor){
                 touchPosition = nearDoor.position;
                 destination = (nearDoor.position - transform.position).normalized;
+            } else {
+                touchPosition = nearMobile.position;
+                destination = (nearMobile.position - transform.position).normalized;
             }
 
             // Same as above
@@ -117,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             rigidb2D.velocity = new Vector2(destination.x * moveSpeed, destination.y * moveSpeed);
 
             // Reset
-            goUnderTheWindow = goToTheDoor = false;
+            goUnderTheWindow = goToTheDoor = goToMobile = false;
         }
 
         // Destination is reached
@@ -176,5 +180,10 @@ public class PlayerMovement : MonoBehaviour
     // Setter goToTheDoor
     internal void SetgoToTheDoor() {
         goToTheDoor = true;
+    }
+
+    // Setter goToMobile
+    internal void SetgoToMobile() {
+        goToMobile = true;
     }
 }

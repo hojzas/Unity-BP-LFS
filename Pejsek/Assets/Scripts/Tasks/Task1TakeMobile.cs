@@ -6,6 +6,8 @@ public class Task1TakeMobile : MonoBehaviour
 {
     [SerializeField] internal TaskManager taskManager = default;
 
+    [SerializeField] GameObject mobileHint = default;
+
     [Header("Speech bubble")]
     [SerializeField] GameObject speakingIcon = default;
     [SerializeField] GameObject speechBubbleOneLine = default;
@@ -25,6 +27,8 @@ public class Task1TakeMobile : MonoBehaviour
         speechBubbleAnimator = speechBubbleOneLine.GetComponent<Animator>();
         speakingIconAnimator = speakingIcon.GetComponent<Animator>();
         speechBubble = speechBubbleOneLine.transform.Find("Text").gameObject.GetComponent<TextMeshProUGUI>();
+
+        StartCoroutine(DisplayHint());
     }
 
     internal void StartTask1TakeMobile() {
@@ -52,9 +56,17 @@ public class Task1TakeMobile : MonoBehaviour
     // Disable 1st task (take mobile) gameobjects
     internal void Disable() {
         speechAudio.Stop();
+        mobileHint.SetActive(false);
         mobileTaken = true;
         speechBubbleAnimator.ResetTrigger("Open");
         speechBubbleAnimator.SetTrigger("Close");
         speakingIconAnimator.SetTrigger("Close");
+    }
+
+    private IEnumerator DisplayHint() {
+        yield return new WaitForSeconds(10);
+        if (!mobileTaken) {
+            mobileHint.SetActive(true);
+        }
     }
 }
