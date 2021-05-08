@@ -6097,7 +6097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.399414, y: -15.40094}
+  m_AnchoredPosition: {x: -15.399414, y: -15.401001}
   m_SizeDelta: {x: 214.78906, y: 177.96814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438498906
@@ -13962,7 +13962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &862943420
 Transform:
   m_ObjectHideFlags: 0
@@ -13971,7 +13971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862943419}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3278208, y: 2.53, z: -9.05196}
+  m_LocalPosition: {x: 0.3278208, y: 2.618, z: -9.05196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2145835341}
@@ -22636,8 +22636,8 @@ PolygonCollider2D:
     - - {x: 13.7117, y: -6.61826}
       - {x: 5.186493, y: -6.243458}
       - {x: 1.7193089, y: -3.4718773}
-      - {x: 0.4297142, y: -1.9636871}
-      - {x: -0.7714576, y: -1.9677832}
+      - {x: 0.4349873, y: -2.0375116}
+      - {x: -0.78727716, y: -2.0363345}
       - {x: -1.0108186, y: -2.7088912}
       - {x: -1.1442891, y: -3.8568773}
       - {x: -3.9373527, y: -4.356565}
@@ -34067,7 +34067,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.113414764, y: -2.2019043}
+  m_Offset: {x: 0.113414764, y: -2.6010933}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -34078,7 +34078,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 27.122292, y: 46.598404}
+  m_Size: {x: 27.122292, y: 47.396782}
   m_EdgeRadius: 0
 --- !u!114 &2145835344
 MonoBehaviour:
